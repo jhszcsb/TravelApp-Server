@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.7.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'travelapp-server'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final")
+    //compile("org.jasypt:jasypt-hibernate3:1.9.0")       // todo check this dependency
+    compile("com.h2database:h2")
+    testCompile("junit:junit")
+    compile 'mysql:mysql-connector-java:5.1.31'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
