@@ -11,20 +11,20 @@ public class Traveler {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)    // todo: check cascadetypes
     @JoinColumn(name = "personaldata_id")
     private PersonalData personaldata;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "socialdata_id")
     private SocialData socialdata;
 
-    @OneToOne
+    /*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "friendshipdata_id")
-    private FriendshipData friendshipdata;
+    private FriendshipData friendshipdata;*/
 
     @OneToMany(mappedBy = "traveler", fetch = FetchType.EAGER)    // one traveler, many trips
-    //@JsonIgnore   // using EAGER fetching to read trips in the same transaction
+    // using EAGER fetching to read trips in the same transaction
     private List<Trip> trip = new ArrayList<>();
 
     public int getId() {
@@ -51,13 +51,13 @@ public class Traveler {
         this.socialdata = socialdata;
     }
 
-    public FriendshipData getFriendshipdata() {
+    /*public FriendshipData getFriendshipdata() {
         return friendshipdata;
     }
 
     public void setFriendshipdata(FriendshipData friendshipdata) {
         this.friendshipdata = friendshipdata;
-    }
+    }*/
 
     public List<Trip> getTrip() {
         return trip;

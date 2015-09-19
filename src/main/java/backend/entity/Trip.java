@@ -13,15 +13,15 @@ public class Trip {
     @JoinColumn(name = "traveler_id", nullable = true)    // many trips, one traveler
     private Traveler traveler;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "timeline_id")
     private Timeline timeline;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "gallery_id")
     private Gallery gallery;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "places_id")
     private Places places;
 

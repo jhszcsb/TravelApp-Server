@@ -1,15 +1,21 @@
 package backend.restcontroller;
 
+import backend.entity.FriendshipData;
+import backend.entity.PersonalData;
+import backend.entity.SocialData;
 import backend.entity.Traveler;
 import backend.service.TravelerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
 public class TravelerController {
+
+    // todo: use root "/travelers"
 
     @Autowired
     TravelerService travelerService;
@@ -20,7 +26,8 @@ public class TravelerController {
     @RequestMapping(value="/travelers", method=RequestMethod.POST, consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void createNewTraveler(@RequestBody Traveler newTraveler) {
-        travelerService.save(newTraveler);
+        travelerService.save(createDummyTraveler());
+        //travelerService.save(newTraveler);
     }
 
     // READ (all)
@@ -47,6 +54,24 @@ public class TravelerController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTravelerById(@PathVariable String id) {
         travelerService.deleteById(id);
+    }
+
+    private Traveler createDummyTraveler() {            // todo extract to separate Class
+        Traveler testDummyTraveler = new Traveler();
+        PersonalData personalData = new PersonalData();
+        SocialData socialData = new SocialData();
+        FriendshipData friendshipData = new FriendshipData();
+        personalData.setEmail("dummy@traveler.tr");
+        personalData.setUsername("dummyusername");
+        personalData.setFirstname("Dummy");
+        personalData.setLastname("Traveler");
+        personalData.setPassword("secret");
+        personalData.setHometown("hometown");
+        personalData.setMembersince(new Date());        // todo: use java8 localdate
+        testDummyTraveler.setPersonaldata(personalData);
+        //testDummyTraveler.setFriendshipdata(friendshipData);
+        testDummyTraveler.setSocialdata(socialData);
+        return testDummyTraveler;
     }
 
 }
