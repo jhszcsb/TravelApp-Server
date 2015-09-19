@@ -1,6 +1,7 @@
 package backend.restcontroller;
 
 import backend.entity.FriendshipData;
+import backend.entity.Traveler;
 import backend.service.FriendshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +26,8 @@ public class FriendshipController {
     }
 
     // READ (Friendships for a Traveler)
-    @RequestMapping(value="/friendships/{traveler_id}", method= RequestMethod.GET)
-    public List<FriendshipData> getFriendshipsForTraveler(@PathVariable String id) {
+    @RequestMapping(value="/friendships/{id}", method= RequestMethod.GET)
+    public List<Traveler> getFriendshipsForTraveler(@PathVariable String id) {
         return friendshipService.findForTraveler(id);
     }
 }

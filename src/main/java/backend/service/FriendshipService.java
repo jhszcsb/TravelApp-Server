@@ -1,6 +1,8 @@
 package backend.service;
 
 import backend.entity.FriendshipData;
+import backend.entity.Traveler;
+import backend.repository.CommonRepository;
 import backend.repository.FriendshipRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,11 @@ public class FriendshipService {
     @Resource
     private FriendshipRepository friendshipRepository;
 
-    public List<FriendshipData> findForTraveler(String id) {
-        return null;
+    @Resource
+    private CommonRepository commonRepository;
+
+    public List<Traveler> findForTraveler(String id) {
+        return commonRepository.findFriendshipsForTraveler(id);
     }
 
     public List<FriendshipData> findAll() {

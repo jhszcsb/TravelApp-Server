@@ -1,7 +1,6 @@
 package backend.service;
 
 import backend.entity.Traveler;
-import backend.repository.CommonRepository;
 import backend.repository.TravelerRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,8 @@ public class TravelerService {
     @Resource
     private TravelerRepository travelerRepository;
 
-    @Resource
-    private CommonRepository commonRepository;
+    //@Resource
+    //private CommonRepository commonRepository;
 
     @Transactional
     public List findAll() {
@@ -29,7 +28,7 @@ public class TravelerService {
 
     @Transactional
     public Traveler findById(String id) {
-        return commonRepository.findById(id);
+        return travelerRepository.findOne(Integer.parseInt(id));
     }
 
     @Transactional

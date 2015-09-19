@@ -16,12 +16,12 @@ public class TripController {
     @Autowired
     TripService tripService;
 
-    // CREATE
-    @RequestMapping(value="/trips", method= RequestMethod.POST, consumes="application/json")
+    // CREATE (for Traveler)   // First create a new Trip, then update it with data
+    // todo handle wrong input
+    @RequestMapping(value="/trips/{id}", method= RequestMethod.POST, consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createNewTrip(@RequestBody Trip newTrip) {
-        tripService.save(createDummyTrip());
-        //tripService.save(newTrip);
+    public void createNewTripForTraveler(@PathVariable String id) {
+        tripService.save(createEmptyTripForTraveler(id));
     }
 
     // READ (all)
@@ -31,16 +31,15 @@ public class TripController {
     }
 
     // READ (all trips for one Traveler)
-    // todo: implement this
-    /*@RequestMapping(value="/trips/{traveler_id}", method=RequestMethod.GET)
-    public List<Trip> getAllTripsForTraveler() {
-        return tripService.findAllForTraveler();
-    }*/
+    @RequestMapping(value="/trips/{id}", method=RequestMethod.GET)
+    public List<Trip> getAllTripsForTraveler(@PathVariable String id) {
+        return tripService.findAllForTraveler(id);
+    }
 
-    private Trip createDummyTrip() {   // todo: extract to separate class
+    private Trip createEmptyTripForTraveler(String id) {    // todo rename to prepare...
         Trip newTrip = new Trip();
         Traveler traveler = new Traveler();
-        traveler.setId(1);
+        traveler.setId(Integer.parseInt(id));
         newTrip.setTraveler(traveler);
         newTrip.setGallery(new Gallery());
         newTrip.setPlaces(new Places());
@@ -48,5 +47,8 @@ public class TripController {
         return newTrip;
     }
 
+    private Trip createDummyTrip() {   // todo: extract to separate class
+        return createEmptyTripForTraveler("1");
+    }
 
 }
