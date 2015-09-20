@@ -4,19 +4,22 @@ REST Services
 -----------
   
 --== Traveler ==--  
-	Service		Url					HTTP Method  
-1. 	CREATE		/travelers			POST  
-2. 	READ		/travelers			GET  
-3. 	READ		/travelers/{id}		GET  
-4. 	UPDATE		/travelers			PUT  
-5. 	DELETE		/travelers/{id}		DELETE  
+| Service  | URL | HTTP Method |
+| ------------- | ------------- |
+| CREATE  | /travelers  | POST |
+| READ  | /travelers  | GET |
+| READ  | /travelers  | GET |
+| UPDATE  | /travelers  | PUT |
+| DELETE  | /travelers  | DELETE |
   
 --== Trip ==--  
-	Service		Url					HTTP Method  
-1. 	CREATE		/trips/{id}			POST  
-2. 	READ		/trips				GET  
+| Service  | URL | HTTP Method |
+| ------------- | ------------- |
+| CREATE  | /trips/{id}  | POST |
+| READ  | /trips  | GET |
   
 --== Friendship ==--  
-	Service		Url					HTTP Method  
-1. 	READ		/friendships		GET  
-2. 	READ		/{id}/friendships	GET  
+| Service  | URL | HTTP Method |
+| ------------- | ------------- |
+| READ  | /friendships  | GET |
+| READ  | /{id}/friendships  | GET |
