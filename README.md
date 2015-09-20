@@ -3,7 +3,8 @@
 REST Services
 -----------
     
---== Traveler ==--    
+--== Traveler ==--  
+  
  Service | URL | HTTP Method 
  ------- | --- | -----------
  CREATE  | /travelers  | POST 
@@ -12,13 +13,15 @@ REST Services
  UPDATE  | /travelers  | PUT 
  DELETE  | /travelers  | DELETE 
     
---== Trip ==--    
+--== Trip ==--  
+  
  Service | URL | HTTP Method 
  ------- | --- | -----------
  CREATE  | /trips/{id}  | POST  
  READ  | /trips  | GET |
     
 --== Friendship ==--    
+
  Service | URL | HTTP Method 
  ------- | --- | -----------
  READ  | /friendships  | GET 
