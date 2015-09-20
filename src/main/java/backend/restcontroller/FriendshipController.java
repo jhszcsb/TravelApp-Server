@@ -27,15 +27,15 @@ public class FriendshipController {
     }
 
     // READ (Friendships for a Traveler)
-    @RequestMapping(value="/{id}/friendships", method= RequestMethod.GET)
-    public List<Traveler> getFriendshipsForTraveler(@PathVariable String id) {
-        return friendshipService.findForTraveler(id);
+    @RequestMapping(value="/{traveler_id}/friendships", method= RequestMethod.GET)
+    public List<Traveler> getFriendshipsForTraveler(@PathVariable String traveler_id) {
+        return friendshipService.findForTraveler(traveler_id);
     }
 
     // DELETE (Friendship for a Traveler)
-    @RequestMapping(value="/{traveler}/friendships/{friend}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{traveler_id}/friendships/{friend_id}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteFriendshipByTravelerIds(@PathVariable String traveler, @PathVariable String friend) {
-        friendshipService.deleteByFriendId(traveler, friend);
+    public void deleteFriendshipByTravelerIds(@PathVariable String traveler_id, @PathVariable String friend_id) {
+        friendshipService.deleteByFriendId(traveler_id, friend_id);
     }
 }

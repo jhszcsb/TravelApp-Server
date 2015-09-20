@@ -26,8 +26,11 @@ public class TravelerController {
     @RequestMapping(value="/travelers", method=RequestMethod.POST, consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void createNewTraveler(@RequestBody Traveler newTraveler) {
-        travelerService.save(createDummyTraveler());
-        //travelerService.save(newTraveler);
+        // todo maybe invoke some validation methods here?
+        // todo: if socialdata is null, add empty socialdata
+        newTraveler.getPersonaldata().setMembersince(new Date());
+        travelerService.save(newTraveler);
+        //travelerService.save(createDummyTraveler());
     }
 
     // READ (all)
@@ -56,21 +59,24 @@ public class TravelerController {
         travelerService.deleteById(id);
     }
 
-    private Traveler createDummyTraveler() {            // todo extract to separate Class
-        Traveler testDummyTraveler = new Traveler();
+    private Traveler prepareEmptyTraveler() {
+        Traveler traveler = new Traveler();
         PersonalData personalData = new PersonalData();
         SocialData socialData = new SocialData();
-        FriendshipData friendshipData = new FriendshipData();
-        personalData.setEmail("dummy@traveler.tr");
-        personalData.setUsername("dummyusername");
-        personalData.setFirstname("Dummy");
-        personalData.setLastname("Traveler");
-        personalData.setPassword("secret");
-        personalData.setHometown("hometown");
         personalData.setMembersince(new Date());        // todo: use java8 localdate
-        testDummyTraveler.setPersonaldata(personalData);
-        //testDummyTraveler.setFriendshipdata(friendshipData);
-        testDummyTraveler.setSocialdata(socialData);
+        traveler.setPersonaldata(personalData);
+        traveler.setSocialdata(socialData);
+        return traveler;
+    }
+
+    private Traveler createDummyTraveler() {            // todo extract to separate Class
+        Traveler testDummyTraveler = prepareEmptyTraveler();
+        testDummyTraveler.getPersonaldata().setEmail("dummy@traveler.tr");
+        testDummyTraveler.getPersonaldata().setUsername("dummyusername");
+        testDummyTraveler.getPersonaldata().setFirstname("Dummy");
+        testDummyTraveler.getPersonaldata().setLastname("Traveler");
+        testDummyTraveler.getPersonaldata().setPassword("secret");
+        testDummyTraveler.getPersonaldata().setHometown("hometown");
         return testDummyTraveler;
     }
 
