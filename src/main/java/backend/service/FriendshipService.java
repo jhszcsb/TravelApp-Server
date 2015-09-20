@@ -24,7 +24,7 @@ public class FriendshipService {
         return friendshipRepository.findAll();
     }
 
-    public void deleteById(String traveler, String friend) {
-        //todo implement
+    public void deleteByFriendId(String traveler, String friend) {  // not working
+        friendshipRepository.deleteByTraveler1_idAndTraveler2_id(Integer.parseInt(traveler), Integer.parseInt(friend));
     }
 }

@@ -17,6 +17,9 @@ public class FriendshipController {
     @Autowired
     FriendshipService friendshipService;
 
+    // CREATE (Friendship for a Traveler)
+    // todo implement
+
     // READ (all)
     @RequestMapping(value="/friendships", method=RequestMethod.GET)
     public List<FriendshipData> getAllFriendshipData() {
@@ -33,6 +36,6 @@ public class FriendshipController {
     @RequestMapping(value="/{traveler}/friendships/{friend}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteFriendshipByTravelerIds(@PathVariable String traveler, @PathVariable String friend) {
-        friendshipService.deleteById(traveler, friend);
+        friendshipService.deleteByFriendId(traveler, friend);
     }
 }

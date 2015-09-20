@@ -11,9 +11,6 @@ import java.util.List;
 
 @Repository
 public class CommonRepository {
-    // TODO: remove this class and implement specific repository interfaces for these functionalities
-
-    //private EntityManager em; // todo confiure entitymanager in webappconfig
 
     /*@Autowired
     SessionFactory sessionFactory;
@@ -33,7 +30,6 @@ public class CommonRepository {
     /*@Transactional
     public List<Traveler> findFriendshipsForTraveler(String id) {
         // todo rename to findFriends and implement separate getfriendship with all friendshipdata
-        // todo create HQL query instead of sql query
         return (List<Traveler>) sessionFactory.getCurrentSession().
                 createSQLQuery("select t.* from traveler t right join friendship_data f on f.traveler2_id = t.id where f.traveler1_id = :id").
                 setParameter("id", Integer.parseInt(id)).list();
@@ -41,7 +37,6 @@ public class CommonRepository {
 
     /*@Transactional
     public List<Trip> findTripsForTraveler(String id) {
-        // todo create HQL query instead of sql query
         return (List<Trip>) sessionFactory.getCurrentSession().
                 createSQLQuery("select * from Trip t where t.traveler_id = :id ").setParameter("id", Integer.parseInt(id)).list();
     }*/
