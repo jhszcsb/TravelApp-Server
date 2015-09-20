@@ -15,14 +15,16 @@ public class FriendshipService {
     @Resource
     private FriendshipRepository friendshipRepository;
 
-    @Resource
-    private CommonRepository commonRepository;
-
     public List<Traveler> findForTraveler(String id) {
-        return commonRepository.findFriendshipsForTraveler(id);
+        //return commonRepository.findFriendshipsForTraveler(id);
+        return friendshipRepository.findByTraveler1_id(Integer.parseInt(id));
     }
 
     public List<FriendshipData> findAll() {
         return friendshipRepository.findAll();
+    }
+
+    public void deleteById(String traveler, String friend) {
+        //todo implement
     }
 }

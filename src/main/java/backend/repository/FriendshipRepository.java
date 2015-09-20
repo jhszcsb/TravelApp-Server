@@ -1,7 +1,11 @@
 package backend.repository;
 
 import backend.entity.FriendshipData;
-import org.springframework.data.jpa.repository.JpaRepository;
+import backend.entity.Traveler;
 
-public interface FriendshipRepository extends JpaRepository<FriendshipData, Integer> {
+import java.util.List;
+
+public interface FriendshipRepository extends BaseRepository<FriendshipData, Integer> {
+
+    List<Traveler> findByTraveler1_id(int id);
 }

@@ -22,7 +22,7 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan
-@EnableJpaRepositories
+@EnableJpaRepositories("backend.repository")
 public class WebAppConfig {
 
     @Resource

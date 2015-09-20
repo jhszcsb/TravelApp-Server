@@ -15,9 +15,6 @@ public class TripService {
     @Resource
     private TripRepository tripRepository;
 
-    @Resource
-    private CommonRepository commonRepository;
-
     public void save(Trip newTrip) {
         tripRepository.save(newTrip);
     }
@@ -28,6 +25,6 @@ public class TripService {
     }
 
     public List<Trip> findAllForTraveler(String id) {
-        return commonRepository.findTripsForTraveler(id);
+        return tripRepository.findByTraveler_id(Integer.parseInt(id));
     }
 }
