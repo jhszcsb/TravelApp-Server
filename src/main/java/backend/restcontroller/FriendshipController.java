@@ -12,8 +12,6 @@ import java.util.List;
 @RestController
 public class FriendshipController {
 
-    // todo: use root "/friendships"
-
     @Autowired
     FriendshipService friendshipService;
 
@@ -28,14 +26,14 @@ public class FriendshipController {
 
     // READ (Friendships for a Traveler)
     @RequestMapping(value="/{traveler_id}/friendships", method= RequestMethod.GET)
-    public List<Traveler> getFriendshipsForTraveler(@PathVariable String traveler_id) {
+    public List<Traveler> getFriendshipsForTraveler(@PathVariable int traveler_id) {
         return friendshipService.findForTraveler(traveler_id);
     }
 
     // DELETE (Friendship for a Traveler)
     @RequestMapping(value="/{traveler_id}/friendships/{friend_id}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteFriendshipByTravelerIds(@PathVariable String traveler_id, @PathVariable String friend_id) {
+    public void deleteFriendshipByTravelerIds(@PathVariable int traveler_id, @PathVariable int friend_id) {
         friendshipService.deleteByFriendId(traveler_id, friend_id);
     }
 }

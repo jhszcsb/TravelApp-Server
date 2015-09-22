@@ -27,8 +27,8 @@ public class TravelerService {
     }
 
     @Transactional
-    public Traveler findById(String id) {
-        return travelerRepository.findOne(Integer.parseInt(id));
+    public Traveler findById(int id) {
+        return travelerRepository.findOne(id);
     }
 
     @Transactional
@@ -36,7 +36,7 @@ public class TravelerService {
         travelerRepository.save(updatedTraveler);
     }
 
-    public void deleteById(String id) {
-        travelerRepository.delete(Integer.parseInt(id));
+    public void deleteById(int id) {
+        travelerRepository.delete(id);
     }
 }

@@ -11,8 +11,6 @@ import java.util.List;
 @RestController
 public class TripController {
 
-    // todo: use root "/trips"
-
     @Autowired
     TripService tripService;
 
@@ -20,8 +18,8 @@ public class TripController {
     // todo handle wrong input
     @RequestMapping(value="/{traveler_id}/trips", method= RequestMethod.POST, consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createNewTripForTraveler(@PathVariable String traveler_id) {
-        tripService.save(prepareEmptyTripForTraveler(traveler_id));
+    public void createNewTripForTraveler(@PathVariable int traveler_id) {
+        tripService.createNewForTraveler(traveler_id);
     }
 
     // READ (all)
@@ -32,23 +30,11 @@ public class TripController {
 
     // READ (all trips for one Traveler)
     @RequestMapping(value="/{traveler_id}/trips", method=RequestMethod.GET)
-    public List<Trip> getAllTripsForTraveler(@PathVariable String traveler_id) {
+    public List<Trip> getAllTripsForTraveler(@PathVariable int traveler_id) {
         return tripService.findAllForTraveler(traveler_id);
     }
 
-    private Trip prepareEmptyTripForTraveler(String id) {    // todo rename to prepare...
-        Trip newTrip = new Trip();
-        Traveler traveler = new Traveler();
-        traveler.setId(Integer.parseInt(id));
-        newTrip.setTraveler(traveler);
-        newTrip.setGallery(new Gallery());
-        newTrip.setPlaces(new Places());
-        newTrip.setTimeline(new Timeline());
-        return newTrip;
-    }
-
-    private Trip createDummyTrip() {   // todo: extract to separate class
-        return prepareEmptyTripForTraveler("1");
-    }
+    // UPDATE (by Traveler id and Trip id)
+    // todo: implement
 
 }

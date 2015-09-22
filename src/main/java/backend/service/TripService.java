@@ -1,6 +1,6 @@
 package backend.service;
 
-import backend.entity.Trip;
+import backend.entity.*;
 import backend.repository.CommonRepository;
 import backend.repository.TripRepository;
 import org.springframework.stereotype.Service;
@@ -15,8 +15,8 @@ public class TripService {
     @Resource
     private TripRepository tripRepository;
 
-    public void save(Trip newTrip) {
-        tripRepository.save(newTrip);
+    public void createNewForTraveler(int traveler_id) {
+        tripRepository.save(prepareEmptyTripForTraveler(traveler_id));
     }
 
     @Transactional
@@ -24,7 +24,22 @@ public class TripService {
         return tripRepository.findAll();
     }
 
-    public List<Trip> findAllForTraveler(String id) {
-        return tripRepository.findByTraveler_id(Integer.parseInt(id));
+    public List<Trip> findAllForTraveler(int id) {
+        return tripRepository.findByTraveler_id(id);
+    }
+
+    private Trip prepareEmptyTripForTraveler(int id) {
+        Trip newTrip = new Trip();
+        Traveler traveler = new Traveler();
+        traveler.setId(id);
+        newTrip.setTraveler(traveler);
+        newTrip.setGallery(new Gallery());
+        newTrip.setPlaces(new Places());
+        newTrip.setTimeline(new Timeline());
+        return newTrip;
+    }
+
+    private Trip createDummyTrip() {
+        return prepareEmptyTripForTraveler(1);
     }
 }

@@ -41,7 +41,7 @@ public class TravelerController {
 
     // READ (by id)
     @RequestMapping(value="/travelers/{id}", method=RequestMethod.GET)
-    public Traveler getTravelerById(@PathVariable String id) {
+    public Traveler getTravelerById(@PathVariable int id) {
         return travelerService.findById(id);
     }
 
@@ -55,7 +55,7 @@ public class TravelerController {
     // DELETE (by id)
     @RequestMapping(value="/travelers/{id}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteTravelerById(@PathVariable String id) {
+    public void deleteTravelerById(@PathVariable int id) {
         travelerService.deleteById(id);
     }
 

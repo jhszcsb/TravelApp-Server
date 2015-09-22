@@ -28,21 +28,21 @@ public class CommonRepository {
     }*/
 
     /*@Transactional
-    public List<Traveler> findFriendshipsForTraveler(String id) {
+    public List<Traveler> findFriendshipsForTraveler(int id) {
         // todo rename to findFriends and implement separate getfriendship with all friendshipdata
         return (List<Traveler>) sessionFactory.getCurrentSession().
                 createSQLQuery("select t.* from traveler t right join friendship_data f on f.traveler2_id = t.id where f.traveler1_id = :id").
-                setParameter("id", Integer.parseInt(id)).list();
+                setParameter("id", id).list();
     }*/
 
     /*@Transactional
-    public List<Trip> findTripsForTraveler(String id) {
+    public List<Trip> findTripsForTraveler(int id) {
         return (List<Trip>) sessionFactory.getCurrentSession().
-                createSQLQuery("select * from Trip t where t.traveler_id = :id ").setParameter("id", Integer.parseInt(id)).list();
+                createSQLQuery("select * from Trip t where t.traveler_id = :id ").setParameter("id", id).list();
     }*/
 
     /*@Transactional
-    public Traveler findById(String id) {
-        return (Traveler) sessionFactory.getCurrentSession().createQuery("from Traveler t where t.id = :id ").setParameter("id", Integer.parseInt(id)).uniqueResult();
+    public Traveler findById(int id) {
+        return (Traveler) sessionFactory.getCurrentSession().createQuery("from Traveler t where t.id = :id ").setParameter("id", id).uniqueResult();
     }*/
 }
