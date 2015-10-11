@@ -33,6 +33,7 @@ dependencies {
     compile("com.h2database:h2")
     testCompile("junit:junit")
     compile 'mysql:mysql-connector-java:5.1.31'
+    compile 'org.springframework.security.oauth:spring-security-oauth2:2.0.7.RELEASE'
 }
 
 task wrapper(type: Wrapper) {
