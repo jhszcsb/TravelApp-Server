@@ -1,0 +1,23 @@
+
+<Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+			   <!--proxyPort="443"/>-->
+			   <!-- !!!!!!!!!!! proxyPort added for NGINX !!!!!!!! -->
+
+
+	<!--  this is added for nginx: -->
+	<Valve className="org.apache.catalina.valves.RemoteIpValve"
+           remoteIpHeader="x-forwarded-for"
+           remoteIpProxiesHeader="x-forwarded-by"
+           protocolHeader="x-forwarded-proto"
+    />
+
+
+
+
+<!-- !!!!!!!!!!!    COMMENT OUT FOR NGINX       !!!!!!!!!!!!!!!! -->
+
+    <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+               maxThreads="150" SSLEnabled="true" scheme="https" secure="true" sslProtocol="TLS"
+			   keystoreFile="c:/Users/Csaba/.keystore" keystorePass="travelapp" />

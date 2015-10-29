@@ -1,6 +1,8 @@
 package backend.service;
 
+import backend.entity.PersonalData;
 import backend.entity.Traveler;
+import backend.repository.PersonalDataRepository;
 import backend.repository.TravelerRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,9 @@ public class TravelerService {
 
     @Resource
     private TravelerRepository travelerRepository;
+
+    @Resource
+    private PersonalDataRepository personalDataRepository;
 
     //@Resource
     //private CommonRepository commonRepository;
@@ -38,5 +43,10 @@ public class TravelerService {
 
     public void deleteById(int id) {
         travelerRepository.delete(id);
+    }
+
+    @Transactional
+    public PersonalData findByUsername(String name) {
+        return personalDataRepository.findByUsername(name);
     }
 }

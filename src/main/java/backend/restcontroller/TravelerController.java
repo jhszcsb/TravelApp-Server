@@ -45,6 +45,12 @@ public class TravelerController {
         return travelerService.findById(id);
     }
 
+    // READ (by id) // todo: add personaldata controller?
+    @RequestMapping(value="/travelers/{name}/personaldata", method=RequestMethod.GET)
+    public PersonalData getPersonalDataByName(@PathVariable String name) {
+        return travelerService.findByUsername(name);
+    }
+
     // UPDATE (by id)
     @RequestMapping(value="/travelers", method=RequestMethod.PUT, consumes = "application/json")
     @ResponseStatus(HttpStatus.NO_CONTENT)

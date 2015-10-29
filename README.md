@@ -10,6 +10,7 @@ REST Services
  CREATE  | /travelers  | POST 
  READ  | /travelers  | GET  
  READ  | /travelers/{id}  | GET 
+ READ  | /travelers/{name}/personaldata  | GET
  UPDATE  | /travelers  | PUT 
  DELETE  | /travelers/{id}  | DELETE 
     
