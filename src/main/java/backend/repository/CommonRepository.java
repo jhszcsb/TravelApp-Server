@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class CommonRepository {
 
-    /*@Autowired
+    @Autowired
     SessionFactory sessionFactory;
 
     public SessionFactory getSessionFactory() {
@@ -25,7 +25,35 @@ public class CommonRepository {
 
     protected Session getCurrentSession(){
         return sessionFactory.getCurrentSession();
-    }*/
+    }
+
+    @Transactional
+    public List<Trip> findAllTripsOfFriendsForTraveler(String name) {
+        // todo: optimize query
+        return (List<Trip>) sessionFactory.getCurrentSession()
+                .createSQLQuery("select trip.* from trip, traveler, friendship_data, personal_data" +
+                        "        where personal_data.username = :name" +
+                        "        and traveler.personaldata_id = personal_data.id" +
+                        "        and friendship_data.traveler1_id = traveler.personaldata_id" +
+                        "        and trip.traveler_id = friendship_data.traveler2_id;")
+                .setParameter("name", name).list();
+    }
+
+
+    // Find all trips os friends of a Traveler by traveler name
+    /*
+    select trip.* from trip, traveler, friendship_data, personal_data
+        where personal_data.username = "testuser"
+        and traveler.personaldata_id = personal_data.id
+        and friendship_data.traveler1_id = traveler.personaldata_id
+        and trip.traveler_id = friendship_data.traveler2_id;
+    */
+
+    // Find all trips for a Traveler by name
+    // TODO: write better join
+    //select trip.traveler_id, trip.timeline_id, trip.gallery_id, trip.places_id from trip, personal_data, traveler
+    //where personal_data.username = "testuser" and personal_data.id = traveler.personaldata_id and traveler.id = trip.traveler_id;
+
 
     /*@Transactional
     public List<Traveler> findFriendshipsForTraveler(int id) {

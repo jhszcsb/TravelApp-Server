@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name = "personal_data")
 public class PersonalData {
 
     @Id

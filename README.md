@@ -11,7 +11,9 @@ REST Services
  READ  | /travelers  | GET  
  READ  | /travelers/{id}  | GET 
  READ  | /travelers/{name}/personaldata  | GET
+ READ  | /travelers/personaldataid/{personaldataid} | GET
  UPDATE  | /travelers  | PUT 
+ UPDATE  | /travelers/{personaldataid}/personaldata | PUT
  DELETE  | /travelers/{id}  | DELETE 
     
 ### Trip  

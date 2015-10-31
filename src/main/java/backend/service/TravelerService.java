@@ -49,4 +49,14 @@ public class TravelerService {
     public PersonalData findByUsername(String name) {
         return personalDataRepository.findByUsername(name);
     }
+
+    @Transactional
+    public void updatePersonalData(PersonalData personalData) {
+        personalDataRepository.save(personalData);
+    }
+
+    @Transactional
+    public Traveler findByPersonalDataId(int id) {
+        return travelerRepository.findByPersonaldata_id(id);
+    }
 }

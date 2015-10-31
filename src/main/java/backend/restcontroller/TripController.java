@@ -34,6 +34,12 @@ public class TripController {
         return tripService.findAllForTraveler(traveler_id);
     }
 
+    // READ (all trips of friends for one Traveler by name)
+    @RequestMapping(value="/{name}/timeline", method=RequestMethod.GET)
+    public List<Trip> getAllTripsForTraveler(@PathVariable String name) {
+        return tripService.findAllTripsOfFriendsForTraveler(name);
+    }
+
     // UPDATE (by Traveler id and Trip id)
     // todo: implement
 

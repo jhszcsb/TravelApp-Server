@@ -42,4 +42,11 @@ public class TripService {
     private Trip createDummyTrip() {
         return prepareEmptyTripForTraveler(1);
     }
+
+    @Resource
+    CommonRepository commonRepository;
+
+    public List<Trip> findAllTripsOfFriendsForTraveler(String name) {
+        return commonRepository.findAllTripsOfFriendsForTraveler(name);
+    }
 }
