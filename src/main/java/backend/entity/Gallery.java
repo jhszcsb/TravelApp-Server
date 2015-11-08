@@ -9,6 +9,8 @@ public class Gallery {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    private String url;
+
     public int getId() {
         return id;
     }
@@ -17,4 +19,11 @@ public class Gallery {
         this.id = id;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

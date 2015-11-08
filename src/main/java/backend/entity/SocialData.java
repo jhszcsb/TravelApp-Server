@@ -3,6 +3,7 @@ package backend.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name="social_data")
 public class SocialData {
 
     @Id

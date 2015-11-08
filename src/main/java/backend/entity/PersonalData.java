@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "personal_data")
+@Entity
+@Table(name="personal_data")
 public class PersonalData {
 
     @Id
@@ -22,7 +23,7 @@ public class PersonalData {
 
     private String lastname;
 
-    @JsonIgnore
+    //@JsonIgnore   // todo: ignore password when sending personal data to clients?
     private String password;
 
     private String email;   // todo: validation

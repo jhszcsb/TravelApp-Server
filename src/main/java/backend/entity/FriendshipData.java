@@ -2,7 +2,8 @@ package backend.entity;
 
 import javax.persistence.*;
 
-@Entity(name = "friendship_data")
+@Entity
+@Table(name="friendship_data")
 public class FriendshipData {
 
     @Id

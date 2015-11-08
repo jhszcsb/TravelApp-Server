@@ -25,6 +25,8 @@ public class Trip {
     @JoinColumn(name = "places_id")
     private Places places;
 
+    private String name;
+
     public int getId() {
         return id;
     }
@@ -63,5 +65,13 @@ public class Trip {
 
     public void setPlaces(Places places) {
         this.places = places;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

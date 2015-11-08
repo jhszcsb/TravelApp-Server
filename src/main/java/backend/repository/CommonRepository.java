@@ -30,13 +30,16 @@ public class CommonRepository {
     @Transactional
     public List<Trip> findAllTripsOfFriendsForTraveler(String name) {
         // todo: optimize query
-        return (List<Trip>) sessionFactory.getCurrentSession()
-                .createSQLQuery("select trip.* from trip, traveler, friendship_data, personal_data" +
+
+        List<Trip> list = (List<Trip>) sessionFactory.getCurrentSession()
+                .createQuery("select trip from Trip trip, Traveler traveler, FriendshipData friendship_data, PersonalData personal_data" +
                         "        where personal_data.username = :name" +
-                        "        and traveler.personaldata_id = personal_data.id" +
-                        "        and friendship_data.traveler1_id = traveler.personaldata_id" +
-                        "        and trip.traveler_id = friendship_data.traveler2_id;")
+                        "        and traveler.personaldata = personal_data.id" +
+                        "        and friendship_data.traveler1 = traveler.personaldata" +
+                        "        and trip.traveler = friendship_data.traveler2")
                 .setParameter("name", name).list();
+        //System.out.println(list.get(0).getGallery().getUrl());
+        return list;
     }
 
 
