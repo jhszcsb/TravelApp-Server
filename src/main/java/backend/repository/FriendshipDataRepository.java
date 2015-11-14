@@ -6,7 +6,6 @@ import backend.entity.Traveler;
 
 import java.util.List;
 
-//TODO: use this instead of friendshiprepository!!!
 public interface FriendshipDataRepository extends BaseRepository<FriendshipData, Integer> {
 
     List<Traveler> findByTraveler1_id(int id);

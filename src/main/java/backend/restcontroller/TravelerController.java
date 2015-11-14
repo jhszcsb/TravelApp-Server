@@ -47,6 +47,7 @@ public class TravelerController {
 
     // READ (by personaldataid)
     @RequestMapping(value="/travelers/personaldataid/{id}", method=RequestMethod.GET)
+    // todo: change scope to: /travelers/personaldata/{personaldataid}
     public Traveler getTravelerByPersonalDataId(@PathVariable int id) {
         return travelerService.findByPersonalDataId(id);
     }

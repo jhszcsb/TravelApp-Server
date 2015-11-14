@@ -1,7 +1,6 @@
 package backend.service;
 
 import backend.entity.*;
-import backend.repository.CommonRepository;
 import backend.repository.TripRepository;
 import org.springframework.stereotype.Service;
 
@@ -44,10 +43,8 @@ public class TripService {
         return prepareEmptyTripForTraveler(1);
     }
 
-    @Resource
-    CommonRepository commonRepository;
-
     public List<Trip> findAllTripsOfFriendsForTraveler(String name) {
-        return commonRepository.findAllTripsOfFriendsForTraveler(name);
+        //return commonRepository.findAllTripsOfFriendsForTraveler(name);
+        return tripRepository.findAllTripsOfFriendsForTraveler(name);
     }
 }

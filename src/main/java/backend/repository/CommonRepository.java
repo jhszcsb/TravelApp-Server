@@ -1,13 +1,9 @@
 package backend.repository;
 
-import backend.entity.Traveler;
-import backend.entity.Trip;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import javax.transaction.Transactional;
-import java.util.List;
 
 @Repository
 public class CommonRepository {
@@ -27,10 +23,8 @@ public class CommonRepository {
         return sessionFactory.getCurrentSession();
     }
 
-    @Transactional
+    /*@Transactional
     public List<Trip> findAllTripsOfFriendsForTraveler(String name) {
-        // todo: optimize query
-
         List<Trip> list = (List<Trip>) sessionFactory.getCurrentSession()
                 .createQuery("select trip from Trip trip, Traveler traveler, FriendshipData friendship_data, PersonalData personal_data" +
                         "        where personal_data.username = :name" +
@@ -40,7 +34,7 @@ public class CommonRepository {
                 .setParameter("name", name).list();
         //System.out.println(list.get(0).getGallery().getUrl());
         return list;
-    }
+    }*/
 
 
     // Find all trips os friends of a Traveler by traveler name

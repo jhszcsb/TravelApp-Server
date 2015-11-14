@@ -2,8 +2,7 @@ package backend.service;
 
 import backend.entity.FriendshipData;
 import backend.entity.Traveler;
-import backend.repository.CommonRepository;
-import backend.repository.FriendshipRepository;
+import backend.repository.FriendshipDataRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,18 +12,18 @@ import java.util.List;
 public class FriendshipService {
 
     @Resource
-    private FriendshipRepository friendshipRepository;
+    private FriendshipDataRepository friendshipDataRepository;
 
     public List<Traveler> findForTraveler(int id) {
         //return commonRepository.findFriendshipsForTraveler(id);
-        return friendshipRepository.findByTraveler1_id(id);
+        return friendshipDataRepository.findByTraveler1_id(id);
     }
 
     public List<FriendshipData> findAll() {
-        return friendshipRepository.findAll();
+        return friendshipDataRepository.findAll();
     }
 
     public void deleteByFriendId(int traveler, int friend) {  // not working
-        friendshipRepository.deleteByTraveler1_idAndTraveler2_id(traveler, friend);
+        friendshipDataRepository.deleteByTraveler1_idAndTraveler2_id(traveler, friend);
     }
 }
