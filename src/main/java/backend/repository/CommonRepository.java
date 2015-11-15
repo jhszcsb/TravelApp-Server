@@ -5,6 +5,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+// TODO: this class is DEPRECATED!!!
+// DO NOT USE IT!!!
+
 @Repository
 public class CommonRepository {
 

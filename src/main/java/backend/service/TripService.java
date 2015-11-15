@@ -35,7 +35,7 @@ public class TripService {
         newTrip.setGallery(new Gallery());
         newTrip.setPlaces(new Places());
         newTrip.setTimeline(new Timeline());
-        newTrip.setName("asdf");
+        newTrip.setName("new trip");
         return newTrip;
     }
 

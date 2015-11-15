@@ -15,4 +15,9 @@ public interface TripRepository extends BaseRepository<Trip, Integer> {
             "traveler.personaldata = personal_data.id and friendship_data.traveler1 = traveler.personaldata and " +
             "trip.traveler = friendship_data.traveler2")
     List<Trip> findAllTripsOfFriendsForTraveler(String name);
+
+    /*
+    using named parameters:
+    http://docs.spring.io/spring-data/jpa/docs/1.3.0.RELEASE/reference/html/jpa.repositories.html
+     */
 }
