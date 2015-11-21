@@ -14,8 +14,8 @@ public class TripService {
     @Resource
     private TripRepository tripRepository;
 
-    public void createNewForTraveler(int traveler_id) {
-        tripRepository.save(prepareEmptyTripForTraveler(traveler_id));
+    public Trip createNewForTraveler(int traveler_id) {
+        return tripRepository.save(prepareEmptyTripForTraveler(traveler_id));
     }
 
     @Transactional
@@ -46,5 +46,10 @@ public class TripService {
     public List<Trip> findAllTripsOfFriendsForTraveler(String name) {
         //return commonRepository.findAllTripsOfFriendsForTraveler(name);
         return tripRepository.findAllTripsOfFriendsForTraveler(name);
+    }
+
+    @Transactional
+    public void update(Trip updatedTrip) {
+        tripRepository.save(updatedTrip);
     }
 }

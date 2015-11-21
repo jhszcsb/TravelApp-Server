@@ -6,11 +6,16 @@ import backend.entity.SocialData;
 import backend.entity.Traveler;
 import backend.service.TravelerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
 public class TravelerController {
@@ -57,6 +62,14 @@ public class TravelerController {
     public PersonalData getPersonalDataByName(@PathVariable String name) {
         return travelerService.findByUsername(name);
     }
+
+    /*@RequestMapping(value="/travelers/{name}/personaldata", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Resource<PersonalData> getPersonalDataByNameHateoasTest(@PathVariable String name) {
+        PersonalData personalData = travelerService.findByUsername(name);
+        Resource<PersonalData> resource = new Resource(personalData);
+        resource.add(linkTo(methodOn(TravelerController.class).getPersonalDataByNameHateoasTest(name)).withSelfRel());
+        return resource;
+    }*/
 
     // UPDATE (by id)
     @RequestMapping(value="/travelers", method=RequestMethod.PUT, consumes = "application/json")

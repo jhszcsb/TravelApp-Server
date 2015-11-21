@@ -21,10 +21,10 @@ public class TripController {
 
     // CREATE (for Traveler)   // First create a new Trip, then update it with data
     // todo handle wrong input
-    @RequestMapping(value="/{traveler_id}/trips", method= RequestMethod.POST, consumes="application/json")
+    @RequestMapping(value="/{traveler_id}/trips", method= RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void createNewTripForTraveler(@PathVariable int traveler_id) {
-        tripService.createNewForTraveler(traveler_id);
+    public Trip createNewTripForTraveler(@PathVariable int traveler_id) {
+        return tripService.createNewForTraveler(traveler_id);
     }
 
     // READ (all)
@@ -43,6 +43,13 @@ public class TripController {
     @RequestMapping(value="/{name}/timeline", method=RequestMethod.GET)
     public List<Trip> getAllTripsForTraveler(@PathVariable String name) {
         return tripService.findAllTripsOfFriendsForTraveler(name);
+    }
+
+    // UPDATE
+    @RequestMapping(value="/trips", method=RequestMethod.PUT, consumes = "application/json")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateTrip(@RequestBody Trip updatedTrip) {
+        tripService.update(updatedTrip);
     }
 
     // HATEOAS test
