@@ -1,5 +1,7 @@
 package backend.entity;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +12,7 @@ public class Trip {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "traveler_id", nullable = true)    // many trips, one traveler
+    @JoinColumn(name = "traveler_id", nullable = true, updatable = false)    // many trips, one traveler
     private Traveler traveler;
 
     @OneToOne(cascade = CascadeType.ALL)

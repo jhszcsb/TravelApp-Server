@@ -52,6 +52,13 @@ public class TripController {
         tripService.update(updatedTrip);
     }
 
+    // DELETE (by id)
+    @RequestMapping(value="/trips/{id}", method=RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteTravelerById(@PathVariable int id) {
+        tripService.deleteById(id);
+    }
+
     // HATEOAS test
     @RequestMapping(value = "/hateoas", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

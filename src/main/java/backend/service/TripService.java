@@ -39,17 +39,16 @@ public class TripService {
         return newTrip;
     }
 
-    private Trip createDummyTrip() {
-        return prepareEmptyTripForTraveler(1);
-    }
-
     public List<Trip> findAllTripsOfFriendsForTraveler(String name) {
-        //return commonRepository.findAllTripsOfFriendsForTraveler(name);
         return tripRepository.findAllTripsOfFriendsForTraveler(name);
     }
 
     @Transactional
     public void update(Trip updatedTrip) {
         tripRepository.save(updatedTrip);
+    }
+
+    public void deleteById(int id) {
+        tripRepository.delete(id);
     }
 }
