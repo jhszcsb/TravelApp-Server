@@ -101,3 +101,15 @@ CREATE TABLE `trip` (
 COLLATE='latin2_hungarian_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1;
+
+CREATE TABLE `picture` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`data` LONGBLOB NULL,
+	`gallery_id` INT(11) NULL DEFAULT NULL,
+	`places_id` INT(11) NOT NULL,
+	PRIMARY KEY (`id`),
+	CONSTRAINT `picture_gallery` FOREIGN KEY (`gallery_id`) REFERENCES `gallery` (`id`),
+	CONSTRAINT `picture_places` FOREIGN KEY (`places_id`) REFERENCES `places` (`id`)
+)
+COLLATE='latin2_hungarian_ci'
+ENGINE=InnoDB;

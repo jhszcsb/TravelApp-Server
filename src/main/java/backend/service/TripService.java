@@ -33,7 +33,7 @@ public class TripService {
         traveler.setId(id);
         newTrip.setTraveler(traveler);
         newTrip.setGallery(new Gallery());
-        newTrip.setPlaces(new Places());
+        //newTrip.setPlaces(new Places());
         newTrip.setTimeline(new Timeline());
         newTrip.setName("new trip");
         return newTrip;

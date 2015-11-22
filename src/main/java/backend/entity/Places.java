@@ -1,9 +1,11 @@
 package backend.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class Places {
+public class Places {   // todo: rename to Place
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,6 +14,13 @@ public class Places {
     private String name;
 
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "trip_id", nullable = true, updatable = false)
+    private Trip trip;
+
+    @OneToMany(mappedBy = "places", fetch = FetchType.EAGER)
+    private List<Picture> pictures = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -35,5 +44,21 @@ public class Places {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getTrip() {
+        return trip.getId();
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
+    }
+
+    public List<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Picture> pictures) {
+        this.pictures = pictures;
     }
 }

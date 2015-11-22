@@ -1,6 +1,8 @@
 package backend.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Gallery {
@@ -10,6 +12,9 @@ public class Gallery {
     private int id;
 
     private String url;
+
+    @OneToMany(mappedBy = "gallery", fetch = FetchType.EAGER)
+    private List<Picture> pictures = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -25,5 +30,13 @@ public class Gallery {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public List<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Picture> pictures) {
+        this.pictures = pictures;
     }
 }

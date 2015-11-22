@@ -1,8 +1,8 @@
 package backend.entity;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Trip {
@@ -23,9 +23,12 @@ public class Trip {
     @JoinColumn(name = "gallery_id")
     private Gallery gallery;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    /*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "places_id")
-    private Places places;
+    private Places places;*/
+
+    @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)
+    private List<Places> places = new ArrayList<>();
 
     private String name;
 
@@ -61,13 +64,13 @@ public class Trip {
         this.gallery = gallery;
     }
 
-    public Places getPlaces() {
+    /*public Places getPlaces() {
         return places;
     }
 
     public void setPlaces(Places places) {
         this.places = places;
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -75,5 +78,13 @@ public class Trip {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Places> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(List<Places> places) {
+        this.places = places;
     }
 }
