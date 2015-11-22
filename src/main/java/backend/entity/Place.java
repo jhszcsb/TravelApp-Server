@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Places {   // todo: rename to Place
+public class Place {   // todo: rename to Place
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +20,7 @@ public class Places {   // todo: rename to Place
     @JoinColumn(name = "trip_id", nullable = true, updatable = false)
     private Trip trip;
 
-    @OneToMany(mappedBy = "places", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "place", fetch = FetchType.EAGER)
     private List<Picture> pictures = new ArrayList<>();
 
     @Temporal(TemporalType.TIMESTAMP)

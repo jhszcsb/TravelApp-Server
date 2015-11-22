@@ -51,7 +51,7 @@ public class CommonRepository {
 
     // Find all trips for a Traveler by name
     // TODO: write better join
-    //select trip.traveler_id, trip.timeline_id, trip.gallery_id, trip.places_id from trip, personal_data, traveler
+    //select trip.traveler_id, trip.timeline_id, trip.gallery_id, trip.place_id from trip, personal_data, traveler
     //where personal_data.username = "testuser" and personal_data.id = traveler.personaldata_id and traveler.id = trip.traveler_id;
 
 

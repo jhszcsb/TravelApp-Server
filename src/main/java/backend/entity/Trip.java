@@ -24,7 +24,7 @@ public class Trip {
     private Gallery gallery;
 
     @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)
-    private List<Places> places = new ArrayList<>();
+    private List<Place> place = new ArrayList<>();
 
     private String name;
 
@@ -70,12 +70,12 @@ public class Trip {
         this.name = name;
     }
 
-    public List<Places> getPlaces() {
-        return places;
+    public List<Place> getPlace() {
+        return place;
     }
 
-    public void setPlaces(List<Places> places) {
-        this.places = places;
+    public void setPlace(List<Place> place) {
+        this.place = place;
     }
 
     public String getDescription() {

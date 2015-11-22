@@ -14,10 +14,10 @@ public class PictureController {
     @Autowired
     PictureService pictureService;
 
-    // READ (for Places)
-    @RequestMapping(value="/places/{places_id}/pictures", method = RequestMethod.GET)
-    public List<Picture> getAllPicturesForPlaces(@PathVariable int places_id) {
-        return pictureService.findAllForPlaces(places_id);
+    // READ (for Place)
+    @RequestMapping(value="/place/{place_id}/pictures", method = RequestMethod.GET)
+    public List<Picture> getAllPicturesForPlace(@PathVariable int place_id) {
+        return pictureService.findAllForPlace(place_id);
     }
 
     // READ (for Gallery)
@@ -37,9 +37,9 @@ public class PictureController {
         pictureService.createNewForGallery(picture);
     }
 
-    // todo: create for places
+    // todo: create for place
 
-    // todo: set places id
+    // todo: set place id
 
 
     // DELETE (by id)

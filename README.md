@@ -41,14 +41,14 @@ REST Services
   Service | URL | HTTP Method 
   ------- | --- | -----------
   CREATE  | /gallery/{gallery_id}/pictures  | POST 
-  READ  | /places/{places_id}/pictures  | GET 
+  READ  | /place/{place_id}/pictures  | GET 
   READ  | /gallery/{gallery_id}/pictures  | GET 
   DELETE  | /pictures/{picture_id}  | DELETE 
   
-### Places
+### Place
  
   Service | URL | HTTP Method 
   ------- | --- | -----------
-  CREATE  | /trips/{trip_id}/places  | POST 
-  READ  | /trips/{trip_id}/places  | GET 
-  DELETE  | /places/{places_id}  | DELETE 
+  CREATE  | /trips/{trip_id}/place  | POST 
+  READ  | /trips/{trip_id}/place  | GET 
+  DELETE  | /place/{place_id}  | DELETE 

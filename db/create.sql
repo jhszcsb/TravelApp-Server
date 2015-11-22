@@ -41,7 +41,7 @@ COLLATE='latin2_hungarian_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1;
 
-CREATE TABLE `places` (
+CREATE TABLE `place` (
 	`id` INT(10) NOT NULL AUTO_INCREMENT,
 	`description` VARCHAR(50) NULL DEFAULT NULL COLLATE 'latin2_hungarian_ci',
 	`name` VARCHAR(50) NULL DEFAULT NULL COLLATE 'latin2_hungarian_ci',
@@ -86,15 +86,15 @@ CREATE TABLE `trip` (
 	`traveler_id` INT(10) NULL DEFAULT NULL,
 	`timeline_id` INT(10) NULL DEFAULT NULL,
 	`gallery_id` INT(10) NULL DEFAULT NULL,
-	`places_id` INT(10) NULL DEFAULT NULL,
+	`place_id` INT(10) NULL DEFAULT NULL,
 	`name` VARCHAR(50) NOT NULL COLLATE 'latin2_hungarian_ci',
 	PRIMARY KEY (`id`),
 	INDEX `trip_timeline` (`timeline_id`),
 	INDEX `trip_gallery` (`gallery_id`),
-	INDEX `trip_places` (`places_id`),
+	INDEX `trip_place` (`place_id`),
 	INDEX `trip_traveler` (`traveler_id`),
 	CONSTRAINT `trip_gallery` FOREIGN KEY (`gallery_id`) REFERENCES `gallery` (`id`),
-	CONSTRAINT `trip_places` FOREIGN KEY (`places_id`) REFERENCES `places` (`id`),
+	CONSTRAINT `trip_place` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`),
 	CONSTRAINT `trip_timeline` FOREIGN KEY (`timeline_id`) REFERENCES `timeline` (`id`),
 	CONSTRAINT `trip_traveler` FOREIGN KEY (`traveler_id`) REFERENCES `traveler` (`id`)
 )
@@ -106,10 +106,10 @@ CREATE TABLE `picture` (
 	`id` INT(10) NOT NULL AUTO_INCREMENT,
 	`data` LONGBLOB NULL,
 	`gallery_id` INT(11) NULL DEFAULT NULL,
-	`places_id` INT(11) NOT NULL,
+	`place_id` INT(11) NOT NULL,
 	PRIMARY KEY (`id`),
 	CONSTRAINT `picture_gallery` FOREIGN KEY (`gallery_id`) REFERENCES `gallery` (`id`),
-	CONSTRAINT `picture_places` FOREIGN KEY (`places_id`) REFERENCES `places` (`id`)
+	CONSTRAINT `picture_place` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`)
 )
 COLLATE='latin2_hungarian_ci'
 ENGINE=InnoDB;

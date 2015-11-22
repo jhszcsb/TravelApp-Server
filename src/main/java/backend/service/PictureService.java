@@ -15,8 +15,8 @@ public class PictureService {
     private PictureRepository pictureRepository;
 
     @Transactional
-    public List<Picture> findAllForPlaces(int places_id) {
-        return pictureRepository.findByPlaces_id(places_id);
+    public List<Picture> findAllForPlace(int place_id) {
+        return pictureRepository.findByPlace_id(place_id);
     }
 
     @Transactional

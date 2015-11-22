@@ -14,8 +14,8 @@ public class Picture {
     private Gallery gallery;
 
     @ManyToOne
-    @JoinColumn(name = "places_id", nullable = true, updatable = false)
-    private Places places;
+    @JoinColumn(name = "place_id", nullable = true, updatable = false)
+    private Place place;
 
     public int getId() {
         return id;
@@ -33,11 +33,11 @@ public class Picture {
         this.gallery = gallery;
     }
 
-    public int getPlaces() {
-        return places.getId();
+    public int getPlace() {
+        return place.getId();
     }
 
-    public void setPlaces(Places places) {
-        this.places = places;
+    public void setPlace(Place place) {
+        this.place = place;
     }
 }
