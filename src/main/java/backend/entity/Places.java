@@ -2,6 +2,7 @@ package backend.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,6 +22,12 @@ public class Places {   // todo: rename to Place
 
     @OneToMany(mappedBy = "places", fetch = FetchType.EAGER)
     private List<Picture> pictures = new ArrayList<>();
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date arrived;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date left;
 
     public int getId() {
         return id;
@@ -60,5 +67,21 @@ public class Places {   // todo: rename to Place
 
     public void setPictures(List<Picture> pictures) {
         this.pictures = pictures;
+    }
+
+    public Date getArrived() {
+        return arrived;
+    }
+
+    public void setArrived(Date arrived) {
+        this.arrived = arrived;
+    }
+
+    public Date getLeft() {
+        return left;
+    }
+
+    public void setLeft(Date left) {
+        this.left = left;
     }
 }

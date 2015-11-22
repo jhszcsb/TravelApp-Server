@@ -3,10 +3,8 @@ package backend.restcontroller;
 import backend.entity.Picture;
 import backend.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +26,19 @@ public class PictureController {
         return pictureService.findAllForGallery(gallery_id);
     }
 
-    // todo: findall for trip
+    // todo: findAll for trip
+
+    // todo: create for trip
+
+    // CREATE (for gallery)
+    @RequestMapping(value="/gallery/{gallery_id}/pictures", method= RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createNewPictureForGallery(@RequestBody Picture picture) {
+        pictureService.createNewForGallery(picture);
+    }
+
+    // todo: create for places
+
+    // todo: set places id
 
 }

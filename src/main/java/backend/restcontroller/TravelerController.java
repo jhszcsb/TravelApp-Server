@@ -51,7 +51,7 @@ public class TravelerController {
     }
 
     // READ (by personaldataid)
-    @RequestMapping(value="/travelers/personaldataid/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/travelers/personaldata/{id}", method=RequestMethod.GET)
     // todo: change scope to: /travelers/personaldata/{personaldataid}
     public Traveler getTravelerByPersonalDataId(@PathVariable int id) {
         return travelerService.findByPersonalDataId(id);
@@ -78,9 +78,8 @@ public class TravelerController {
         travelerService.update(updatedTraveler);
     }
 
-    // UPDATE (by name) // todo: add personaldata controller?
-    // todo: change scope to: /travelers/personaldata/{personaldataid}
-    @RequestMapping(value="/travelers/{personaldataid}/personaldata", method=RequestMethod.PUT, consumes = "application/json")
+    // UPDATE (by name)
+    @RequestMapping(value="/travelers/personaldata/{personaldataid}", method=RequestMethod.PUT, consumes = "application/json")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updatePersonalDataByName(@RequestBody PersonalData personalData, @PathVariable int personaldataid) {
         travelerService.updatePersonalData(personalData);

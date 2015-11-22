@@ -23,4 +23,9 @@ public class PictureService {
     public List<Picture> findAllForGallery(int gallery_id) {
         return pictureRepository.findByGallery_id(gallery_id);
     }
+
+    @Transactional
+    public void createNewForGallery(Picture picture) {
+        pictureRepository.save(picture);
+    }
 }
