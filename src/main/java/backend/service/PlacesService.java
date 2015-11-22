@@ -26,4 +26,8 @@ public class PlacesService {
     public List<Places> findAllForTrip(int trip_id) {
         return placesRepository.findByTrip_id(trip_id);
     }
+
+    public void deleteById(int id) {
+        placesRepository.delete(id);
+    }
 }

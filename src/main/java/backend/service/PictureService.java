@@ -28,4 +28,8 @@ public class PictureService {
     public void createNewForGallery(Picture picture) {
         pictureRepository.save(picture);
     }
+
+    public void deleteById(int id) {
+        pictureRepository.delete(id);
+    }
 }

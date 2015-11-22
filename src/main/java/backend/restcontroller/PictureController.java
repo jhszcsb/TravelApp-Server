@@ -41,4 +41,12 @@ public class PictureController {
 
     // todo: set places id
 
+
+    // DELETE (by id)
+    @RequestMapping(value="/pictures/{picture_id}", method=RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePictureById(@PathVariable int id) {
+        pictureService.deleteById(id);
+    }
+
 }

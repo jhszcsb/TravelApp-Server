@@ -26,4 +26,11 @@ public class PlacesController {
     public List<Places> getAllPlacesFoTrip(@PathVariable int trip_id) {
         return placesService.findAllForTrip(trip_id);
     }
+
+    // DELETE (by id)
+    @RequestMapping(value="/places/{places_id}", method=RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePlacesById(@PathVariable int id) {
+        placesService.deleteById(id);
+    }
 }

@@ -43,6 +43,7 @@ REST Services
   CREATE  | /gallery/{gallery_id}/pictures  | POST 
   READ  | /places/{places_id}/pictures  | GET 
   READ  | /gallery/{gallery_id}/pictures  | GET 
+  DELETE  | /pictures/{picture_id}  | DELETE 
   
 ### Places
  
@@ -50,3 +51,4 @@ REST Services
   ------- | --- | -----------
   CREATE  | /trips/{trip_id}/places  | POST 
   READ  | /trips/{trip_id}/places  | GET 
+  DELETE  | /places/{places_id}  | DELETE 
