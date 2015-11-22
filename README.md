@@ -36,7 +36,7 @@ REST Services
  READ  | /{traveler_id}/friendships  | GET  
  DELETE  | /{traveler_id}/friendships/{friend_id}  | DELETE 
  
- ### Picture
+### Picture
  
   Service | URL | HTTP Method 
   ------- | --- | -----------
@@ -44,7 +44,7 @@ REST Services
   READ  | /places/{places_id}/pictures  | GET 
   READ  | /gallery/{gallery_id}/pictures  | GET 
   
- ### Places
+### Places
  
   Service | URL | HTTP Method 
   ------- | --- | -----------
