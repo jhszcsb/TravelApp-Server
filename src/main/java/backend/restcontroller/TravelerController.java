@@ -35,7 +35,6 @@ public class TravelerController {
         // todo: if socialdata is null, add empty socialdata
         newTraveler.getPersonaldata().setMembersince(new Date());
         travelerService.save(newTraveler);
-        //travelerService.save(createDummyTraveler());
     }
 
     // READ (all)
@@ -96,13 +95,13 @@ public class TravelerController {
         Traveler traveler = new Traveler();
         PersonalData personalData = new PersonalData();
         SocialData socialData = new SocialData();
-        personalData.setMembersince(new Date());        // todo: use java8 localdate
+        personalData.setMembersince(new Date());
         traveler.setPersonaldata(personalData);
         traveler.setSocialdata(socialData);
         return traveler;
     }
 
-    private Traveler createDummyTraveler() {            // todo extract to separate Class
+    private Traveler createDummyTraveler() {
         Traveler testDummyTraveler = prepareEmptyTraveler();
         testDummyTraveler.getPersonaldata().setEmail("dummy@traveler.tr");
         testDummyTraveler.getPersonaldata().setUsername("dummyusername");

@@ -16,8 +16,7 @@ public class PersonalData {
     private String username;
 
     @Lob
-    private byte[] profilepic;  // todo: link to picture or bytes?
-                                // todo: check and validate size
+    private byte[] profilepic;
 
     private String firstname;
 
@@ -32,7 +31,6 @@ public class PersonalData {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date membersince; // todo: date format, type?
-    //private String membersince;
 
     public int getId() {
         return id;

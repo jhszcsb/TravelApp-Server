@@ -19,10 +19,6 @@ public class Traveler {
     @JoinColumn(name = "socialdata_id")
     private SocialData socialdata;
 
-    /*@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "friendshipdata_id")
-    private FriendshipData friendshipdata;*/
-
     @OneToMany(mappedBy = "traveler", fetch = FetchType.EAGER)    // one traveler, many trips
     // using EAGER fetching to read trips in the same transaction
     private List<Trip> trip = new ArrayList<>();
