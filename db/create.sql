@@ -1,15 +1,15 @@
 --todo: add valid sequence of create codes to be able to reinitialize db
 --todo: add test data to db from sql file
 
-CREATE TABLE `friendship_data` (
+CREATE TABLE `follower_data` (
 	`id` INT(10) NOT NULL AUTO_INCREMENT,
 	`traveler1_id` INT(10) NULL DEFAULT NULL,
 	`traveler2_id` INT(10) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	INDEX `friendship_traveler1-traveler` (`traveler1_id`),
-	INDEX `friendship_traveler2-traveler` (`traveler2_id`),
-	CONSTRAINT `friendship_traveler1-traveler` FOREIGN KEY (`traveler1_id`) REFERENCES `traveler` (`id`),
-	CONSTRAINT `friendship_traveler2-traveler` FOREIGN KEY (`traveler2_id`) REFERENCES `traveler` (`id`)
+	INDEX `follow_traveler1-traveler` (`traveler1_id`),
+	INDEX `follow_traveler2-traveler` (`traveler2_id`),
+	CONSTRAINT `follow_traveler1-traveler` FOREIGN KEY (`traveler1_id`) REFERENCES `traveler` (`id`),
+	CONSTRAINT `follow_traveler2-traveler` FOREIGN KEY (`traveler2_id`) REFERENCES `traveler` (`id`)
 )
 COLLATE='latin2_hungarian_ci'
 ENGINE=InnoDB

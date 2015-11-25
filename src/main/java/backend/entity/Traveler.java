@@ -47,14 +47,6 @@ public class Traveler {
         this.socialdata = socialdata;
     }
 
-    /*public FriendshipData getFriendshipdata() {
-        return friendshipdata;
-    }
-
-    public void setFriendshipdata(FriendshipData friendshipdata) {
-        this.friendshipdata = friendshipdata;
-    }*/
-
     public List<Trip> getTrip() {
         return trip;
     }

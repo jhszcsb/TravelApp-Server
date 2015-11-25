@@ -39,10 +39,10 @@ public class TripController {
         return tripService.findAllForTraveler(traveler_id);
     }
 
-    // READ (all trips of friends for one Traveler by name)
+    // READ (all trips of followeds for one Traveler by name)
     @RequestMapping(value="/{name}/timeline", method=RequestMethod.GET)
     public List<Trip> getAllTripsForTraveler(@PathVariable String name) {
-        return tripService.findAllTripsOfFriendsForTraveler(name);
+        return tripService.findAllTripsOfFollowedsForTraveler(name);
     }
 
     // UPDATE

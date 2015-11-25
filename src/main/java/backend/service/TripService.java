@@ -39,8 +39,8 @@ public class TripService {
         return newTrip;
     }
 
-    public List<Trip> findAllTripsOfFriendsForTraveler(String name) {
-        return tripRepository.findAllTripsOfFriendsForTraveler(name);
+    public List<Trip> findAllTripsOfFollowedsForTraveler(String name) {
+        return tripRepository.findAllTripsOfFollowedsForTraveler(name);
     }
 
     @Transactional

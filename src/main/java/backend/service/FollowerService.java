@@ -1,10 +1,10 @@
 package backend.service;
 
-import backend.entity.FriendshipData;
-import backend.entity.FriendshipRequest;
+import backend.entity.FollowerData;
+import backend.entity.FollowRequest;
 import backend.entity.PersonalData;
 import backend.entity.Traveler;
-import backend.repository.FriendshipDataRepository;
+import backend.repository.FollowerDataRepository;
 import backend.repository.PersonalDataRepository;
 import backend.repository.TravelerRepository;
 import org.springframework.stereotype.Service;
@@ -14,10 +14,10 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class FriendshipService {
+public class FollowerService {
 
     @Resource
-    private FriendshipDataRepository friendshipDataRepository;
+    private FollowerDataRepository followerDataRepository;
 
     @Resource
     private PersonalDataRepository personalDataRepository;
@@ -26,25 +26,24 @@ public class FriendshipService {
     TravelerRepository travelerRepository;
 
     public List<Traveler> findForTraveler(int id) {
-        //return commonRepository.findFriendshipsForTraveler(id);
-        return friendshipDataRepository.findByTraveler1_id(id);
+        return followerDataRepository.findByTraveler1_id(id);
     }
 
-    public List<FriendshipData> findAll() {
-        return friendshipDataRepository.findAll();
+    public List<FollowerData> findAll() {
+        return followerDataRepository.findAll();
     }
 
-    public void deleteByFriendId(int traveler, int friend) {  // not working
-        friendshipDataRepository.deleteByTraveler1_idAndTraveler2_id(traveler, friend);
+    public void deleteByFollowedId(int traveler, int followed) {  // not working
+        followerDataRepository.deleteByTraveler1_idAndTraveler2_id(traveler, followed);
     }
 
     @Transactional
-    public void createForTraveler(FriendshipRequest request) {
-        // todo: check for already existing friendship
+    public void createForTraveler(FollowRequest request) {
+        // todo: check for already existing Follow
         PersonalData personalData1 = personalDataRepository.findByUsername(request.getTraveler1_name());
         PersonalData personalData2 = personalDataRepository.findByUsername(request.getTraveler2_name());
         Traveler traveler1 = travelerRepository.findByPersonaldata_id(personalData1.getId());
         Traveler traveler2 = travelerRepository.findByPersonaldata_id(personalData2.getId());
-        friendshipDataRepository.createNewFriendship(traveler1.getId(), traveler2.getId());
+        followerDataRepository.createNewFollow(traveler1.getId(), traveler2.getId());
     }
 }

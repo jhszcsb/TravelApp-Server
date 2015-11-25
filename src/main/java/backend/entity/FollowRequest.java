@@ -1,7 +1,7 @@
 package backend.entity;
 
 
-public class FriendshipRequest {
+public class FollowRequest {
 
     private String traveler1_name;
 

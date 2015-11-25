@@ -30,7 +30,7 @@ public class PersonalData {
     private String hometown;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date membersince; // todo: date format, type?
+    private Date membersince;
 
     public int getId() {
         return id;

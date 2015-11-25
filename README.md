@@ -31,14 +31,14 @@ Base URL for HATEOAS services: https://localhost:8443/hateoas/
  UPDATE  | /trips  | PUT |
  DELETE  | /trips/{id}  | DELETE |
     
-### Friendship  
+### Followers
 
  Service | URL | HTTP Method 
  ------- | --- | -----------
- CREATE  | /friendships  | POST 
- READ  | /friendships  | GET 
- READ  | /{traveler_id}/friendships  | GET  
- DELETE  | /{traveler_id}/friendships/{friend_id}  | DELETE 
+ CREATE  | /follows  | POST 
+ READ  | /follows  | GET 
+ READ  | /{traveler_id}/follows  | GET  
+ DELETE  | /{traveler_id}/follows/{followed_id}  | DELETE 
  
 ### Picture
  

@@ -3,8 +3,8 @@ package backend.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="friendship_data")
-public class FriendshipData {
+@Table(name="follower_data")
+public class FollowerData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
