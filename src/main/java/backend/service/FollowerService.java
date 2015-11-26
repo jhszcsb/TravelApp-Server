@@ -38,12 +38,25 @@ public class FollowerService {
     }
 
     @Transactional
-    public void createForTraveler(FollowRequest request) {
+    public String createForTraveler(FollowRequest request) {
         // todo: check for already existing Follow
+        if(isAlreadyFollowed(request)) {
+            return "Already Followed!";
+        }
         PersonalData personalData1 = personalDataRepository.findByUsername(request.getTraveler1_name());
         PersonalData personalData2 = personalDataRepository.findByUsername(request.getTraveler2_name());
         Traveler traveler1 = travelerRepository.findByPersonaldata_id(personalData1.getId());
         Traveler traveler2 = travelerRepository.findByPersonaldata_id(personalData2.getId());
         followerDataRepository.createNewFollow(traveler1.getId(), traveler2.getId());
+        return "Followed";
     }
+
+    private boolean isAlreadyFollowed(FollowRequest request) {
+        // todo: use ids
+        /*if(followerDataRepository.getFollowedData(request.getTraveler1_name(), request.getTraveler2_name()) != null) {
+            return true;
+        }*/
+        return false;
+    }
+
 }

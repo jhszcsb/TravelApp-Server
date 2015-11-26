@@ -57,8 +57,8 @@ public class Place {   // todo: rename to Place
         return trip.getId();
     }
 
-    public void setTrip(Trip trip) {
-        this.trip = trip;
+    public void setTrip(int trip) {
+        this.trip.setId(trip);
     }
 
     public List<Picture> getPictures() {

@@ -25,8 +25,7 @@ public class FollowerController {
     @RequestMapping(value="/follows", method=RequestMethod.POST, consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void createNewFollowForTraveler(@RequestBody FollowRequest request) {
-        // todo: check if already followed
-        followerService.createForTraveler(request);
+        followerService.createForTraveler(request); // todo: handle error message returned
     }
 
     // READ (all)

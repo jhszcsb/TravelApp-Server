@@ -3,6 +3,8 @@ package backend.entity;
 
 public class FollowRequest {
 
+    // TODO: add ids here as well
+
     private String traveler1_name;
 
     private String traveler2_name;

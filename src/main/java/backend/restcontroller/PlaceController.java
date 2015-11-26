@@ -15,10 +15,10 @@ public class PlaceController {
     PlaceService placeService;
 
     // CREATE (for Trip)
-    @RequestMapping(value="/trips/{trip_id}/place", method= RequestMethod.POST)
+    @RequestMapping(value="/trips/{trip_id}/place", method= RequestMethod.POST, consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Place createNewPlaceForTrip(@PathVariable int trip_id, @RequestBody Place newTrip) {
-        return placeService.createNewForTrip(trip_id);
+    public void createNewPlaceForTrip(@PathVariable int trip_id, @RequestBody Place newPlace) {
+        placeService.createNewForTrip(trip_id, newPlace);
     }
 
     // READ (for Trip)

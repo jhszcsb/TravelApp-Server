@@ -14,8 +14,9 @@ public class PlaceService {
     @Resource
     private PlaceRepository placeRepository;
 
-    public Place createNewForTrip(int trip_id) {
-        return null;
+    @Transactional
+    public void createNewForTrip(int trip_id, Place place) {
+        placeRepository.saveNewPlaceForTrip(place.getName(), place.getDescription(),trip_id);
     }
 
     @Transactional
