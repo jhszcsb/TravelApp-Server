@@ -16,7 +16,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 @RestController
 public class TravelerController {
 
-    // todo: use root "/travelers"
+    // use root "/travelers" URL?
 
     @Autowired
     TravelerService travelerService;
@@ -27,7 +27,7 @@ public class TravelerController {
     @RequestMapping(value="/travelers", method=RequestMethod.POST, consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void createNewTraveler(@RequestBody Traveler newTraveler) {
-        // todo maybe invoke some validation methods here?
+        // maybe invoke some validation methods here?
         // todo: if socialdata is null, add empty socialdata
         newTraveler.getPersonaldata().setMembersince(new Date());
         travelerService.save(newTraveler);
@@ -95,17 +95,6 @@ public class TravelerController {
         traveler.setPersonaldata(personalData);
         traveler.setSocialdata(socialData);
         return traveler;
-    }
-
-    private Traveler createDummyTraveler() {
-        Traveler testDummyTraveler = prepareEmptyTraveler();
-        testDummyTraveler.getPersonaldata().setEmail("dummy@traveler.tr");
-        testDummyTraveler.getPersonaldata().setUsername("dummyusername");
-        testDummyTraveler.getPersonaldata().setFirstname("Dummy");
-        testDummyTraveler.getPersonaldata().setLastname("Traveler");
-        testDummyTraveler.getPersonaldata().setPassword("secret");
-        testDummyTraveler.getPersonaldata().setHometown("hometown");
-        return testDummyTraveler;
     }
 
 }

@@ -33,9 +33,9 @@ public class PictureController {
         return pictureService.findAllForGallery(gallery_id);
     }
 
-    // todo: findAll for trip
+    // todo: implement findAll for trip
 
-    // todo: create for trip
+    // todo: implement create for trip
 
     // CREATE (for gallery)
     @RequestMapping(value="/gallery/{gallery_id}/pictures", method = RequestMethod.POST)
@@ -44,9 +44,9 @@ public class PictureController {
         pictureService.createNewForGallery(picture);
     }
 
-    // todo: create for place
+    // todo: implement create for place
 
-    // todo: set place id
+    // implement set place id?
 
 
     // DELETE (by id)

@@ -19,13 +19,6 @@ public class Picture {
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "place_id", nullable = true, updatable = false)
     private Place place;
-    // !!!!!!!!!! TODO: place can not be null, causes error!!!
-
-    /*public Picture(){}
-
-    public Picture(int gallery) {
-        this.gallery = ;
-    }*/
 
     public int getId() {
         return id;

@@ -20,6 +20,6 @@ public class AuthenticationService {
         user.setUsername(personalData.getUsername());
         user.setPassword(personalData.getPassword());
         return user;
-        // todo: return personalDataRepository. ;
+        // return personalDataRepository. ;
     }
 }

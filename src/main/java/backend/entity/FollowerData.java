@@ -10,11 +10,11 @@ public class FollowerData {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne // todo: check cascadetype
+    @OneToOne // cascadetype?
     @JoinColumn(name = "traveler1_id")
     private Traveler traveler1;
 
-    @OneToOne // todo: check cascadetype
+    @OneToOne // cascadetype?
     @JoinColumn(name = "traveler2_id")
     private Traveler traveler2;
 

@@ -38,7 +38,7 @@ public class Trip {
         this.id = id;
     }
 
-    public int getTraveler() {   // todo find solution for not retrieving all traveler data (causes infinite loop)
+    public int getTraveler() {   // return id => solution for not retrieving all traveler data (it would cause infinite loop)
         return traveler.getId();
     }
 

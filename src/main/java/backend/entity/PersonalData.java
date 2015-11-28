@@ -25,7 +25,7 @@ public class PersonalData {
     //@JsonIgnore   // todo: ignore password when sending personal data to clients?
     private String password;
 
-    private String email;   // todo: validation
+    private String email;
 
     private String hometown;
 

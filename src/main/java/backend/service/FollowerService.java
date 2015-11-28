@@ -39,7 +39,7 @@ public class FollowerService {
 
     @Transactional
     public String createForTraveler(FollowRequest request) {
-        // todo: check for already existing Follow
+        // check for already existing Follow
         if(isAlreadyFollowed(request)) {
             return "Already Followed!";
         }
@@ -52,7 +52,7 @@ public class FollowerService {
     }
 
     private boolean isAlreadyFollowed(FollowRequest request) {
-        // todo: use ids
+        // todo: implement using ids
         /*if(followerDataRepository.getFollowedData(request.getTraveler1_name(), request.getTraveler2_name()) != null) {
             return true;
         }*/

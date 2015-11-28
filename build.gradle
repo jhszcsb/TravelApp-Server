@@ -29,7 +29,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final")
-    //compile("org.jasypt:jasypt-hibernate3:1.9.0")       // todo check this dependency
+    //compile("org.jasypt:jasypt-hibernate3:1.9.0")       // check this dependency
     compile("com.h2database:h2")
     testCompile("junit:junit")
     compile 'mysql:mysql-connector-java:5.1.31'

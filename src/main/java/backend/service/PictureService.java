@@ -32,4 +32,5 @@ public class PictureService {
     public void deleteById(int id) {
         pictureRepository.delete(id);
     }
+
 }

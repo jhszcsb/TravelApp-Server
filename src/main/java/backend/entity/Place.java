@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Place {   // todo: rename to Place
+public class Place {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -5,10 +5,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-// TODO: this class is DEPRECATED!!!
-// DO NOT USE IT!!!
-
 @Repository
+@Deprecated // DEPRECATED. This class can only be used for experimenting with Hibernate
 public class CommonRepository {
 
     @Autowired
@@ -50,14 +48,13 @@ public class CommonRepository {
     */
 
     // Find all trips for a Traveler by name
-    // TODO: write better join
+    // this is not efficient
     //select trip.traveler_id, trip.timeline_id, trip.gallery_id, trip.place_id from trip, personal_data, traveler
     //where personal_data.username = "testuser" and personal_data.id = traveler.personaldata_id and traveler.id = trip.traveler_id;
 
 
     /*@Transactional
     public List<Traveler> findFriendshipsForTraveler(int id) {
-        // todo rename to findFriends and implement separate getfriendship with all friendshipdata
         return (List<Traveler>) sessionFactory.getCurrentSession().
                 createSQLQuery("select t.* from traveler t right join friendship_data f on f.traveler2_id = t.id where f.traveler1_id = :id").
                 setParameter("id", id).list();

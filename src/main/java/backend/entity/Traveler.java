@@ -11,7 +11,7 @@ public class Traveler {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)    // todo: check cascadetypes
+    @OneToOne(cascade = CascadeType.ALL)    // cascadetype?
     @JoinColumn(name = "personaldata_id")
     private PersonalData personaldata;
 
