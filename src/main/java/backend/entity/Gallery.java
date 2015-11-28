@@ -16,6 +16,15 @@ public class Gallery {
     @OneToMany(mappedBy = "gallery", fetch = FetchType.EAGER)
     private List<Picture> pictures = new ArrayList<>();
 
+    public Gallery() {
+
+    }
+
+    // single argument (id) constructor is needed for parsing REST request objects which contain only the id of gallery
+    public Gallery(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

@@ -38,7 +38,7 @@ public class PictureController {
     // todo: create for trip
 
     // CREATE (for gallery)
-    @RequestMapping(value="/gallery/{gallery_id}/pictures", method= RequestMethod.POST)
+    @RequestMapping(value="/gallery/{gallery_id}/pictures", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void createNewPictureForGallery(@RequestBody Picture picture) {
         pictureService.createNewForGallery(picture);

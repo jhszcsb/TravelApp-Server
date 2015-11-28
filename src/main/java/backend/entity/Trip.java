@@ -20,7 +20,7 @@ public class Trip {
     private Timeline timeline;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "gallery_id")
+    @JoinColumn(name = "gallery_id", updatable = false)
     private Gallery gallery;
 
     @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)

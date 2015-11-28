@@ -29,6 +29,12 @@ public class Place {   // todo: rename to Place
     @Temporal(TemporalType.TIMESTAMP)
     private Date left;
 
+    public Place() {}
+
+    public Place(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
