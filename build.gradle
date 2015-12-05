@@ -44,6 +44,7 @@ dependencies {
     compile 'org.springframework.hateoas:spring-hateoas:0.19.0.RELEASE'
     compile 'com.jayway.jsonpath:json-path:2.1.0'
     compile 'org.springframework:spring-test:4.2.3.RELEASE'
+    compile 'org.mockito:mockito-all:1.10.19'
 }
 
 task wrapper(type: Wrapper) {

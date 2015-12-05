@@ -16,6 +16,8 @@ import java.util.List;
 @RestController
 public class TripController {
 
+    // todo: set content type everywhere
+
     @Autowired
     TripService tripService;
 
@@ -34,7 +36,7 @@ public class TripController {
     }
 
     // READ (by id)
-    @RequestMapping(value="/trips/{trip_id}", method=RequestMethod.GET)
+    @RequestMapping(value="/trips/{trip_id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Trip getTripById(@PathVariable int trip_id) {
         return tripService.findById(trip_id);
     }

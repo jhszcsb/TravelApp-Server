@@ -34,7 +34,7 @@ public class TravelerController {
     }
 
     // READ (all)
-    @RequestMapping(value="/travelers", method=RequestMethod.GET)
+    @RequestMapping(value="/travelers", method=RequestMethod.GET, produces = "application/json")
     public List<Traveler> getAllTravelers() {
         return travelerService.findAll();
     }
