@@ -13,9 +13,16 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+apply plugin: 'war'
+
+war {
+    baseName = 'travelapp-server-war'
+    version =  '1.0.0'
+}
+
 jar {
     baseName = 'travelapp-server'
-    version =  '0.1.0'
+    version =  '1.0.0'
 }
 
 repositories {
@@ -31,10 +38,12 @@ dependencies {
     compile("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final")
     //compile("org.jasypt:jasypt-hibernate3:1.9.0")       // check this dependency
     compile("com.h2database:h2")
-    testCompile("junit:junit")
+    compile("junit:junit:4.12")
     compile 'mysql:mysql-connector-java:5.1.31'
     compile 'org.springframework.security.oauth:spring-security-oauth2:2.0.7.RELEASE'
     compile 'org.springframework.hateoas:spring-hateoas:0.19.0.RELEASE'
+    compile 'com.jayway.jsonpath:json-path:2.1.0'
+    compile 'org.springframework:spring-test:4.2.3.RELEASE'
 }
 
 task wrapper(type: Wrapper) {

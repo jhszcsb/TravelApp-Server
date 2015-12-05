@@ -23,6 +23,11 @@ public class TripService {
         return tripRepository.findAll();
     }
 
+    @Transactional
+    public Trip findById(int trip_id) {
+        return tripRepository.findById(trip_id);
+    }
+
     public List<Trip> findAllForTraveler(int id) {
         return tripRepository.findByTraveler_id(id);
     }
@@ -51,4 +56,5 @@ public class TripService {
     public void deleteById(int id) {
         tripRepository.delete(id);
     }
+
 }

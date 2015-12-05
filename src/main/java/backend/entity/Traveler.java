@@ -1,5 +1,7 @@
 package backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public class Traveler {
 
     @OneToMany(mappedBy = "traveler", fetch = FetchType.EAGER)    // one traveler, many trips
     // using EAGER fetching to read trips in the same transaction
+    //@JsonIgnore
     private List<Trip> trip = new ArrayList<>();
 
     public int getId() {

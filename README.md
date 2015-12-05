@@ -5,7 +5,7 @@ REST Services
 
 Base URL for non-HATEOAS services: https://localhost:8443/
 Base URL for HATEOAS services: https://localhost:8443/hateoas/
------------
+
     
 ### Traveler  
   
@@ -26,6 +26,7 @@ Base URL for HATEOAS services: https://localhost:8443/hateoas/
  ------- | --- | -----------
  CREATE  | /{traveler_id}/trips  | POST  
  READ  | /trips  | GET |
+ READ  | /trips/{id}  | GET |
  READ  | /{traveler_id}/trips  | GET |  
  READ  | /{traveler_name}/timeline  | GET |  
  UPDATE  | /trips  | PUT |

@@ -33,6 +33,12 @@ public class TripController {
         return tripService.findAll();
     }
 
+    // READ (by id)
+    @RequestMapping(value="/trips/{trip_id}", method=RequestMethod.GET)
+    public Trip getTripById(@PathVariable int trip_id) {
+        return tripService.findById(trip_id);
+    }
+
     // READ (all trips for one Traveler)
     @RequestMapping(value="/{traveler_id}/trips", method=RequestMethod.GET)
     public List<Trip> getAllTripsForTraveler(@PathVariable int traveler_id) {

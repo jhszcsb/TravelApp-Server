@@ -18,6 +18,8 @@ public interface TripRepository extends BaseRepository<Trip, Integer> {
             "trip.traveler = follower_data.traveler2")
     List<Trip> findAllTripsOfFollowedsForTraveler(String name);
 
+    Trip findById(int trip_id);
+
     /*
     using named parameters:
     http://docs.spring.io/spring-data/jpa/docs/1.3.0.RELEASE/reference/html/jpa.repositories.html
