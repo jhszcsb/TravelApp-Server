@@ -5,23 +5,23 @@ public class FollowRequest {
 
     // TODO: add ids as well?
 
-    private String traveler1_name;
+    private String follower;
 
-    private String traveler2_name;
+    private String followed;
 
-    public String getTraveler1_name() {
-        return traveler1_name;
+    public String getFollower() {
+        return follower;
     }
 
-    public void setTraveler1_name(String traveler1_name) {
-        this.traveler1_name = traveler1_name;
+    public void setFollower(String follower) {
+        this.follower = follower;
     }
 
-    public String getTraveler2_name() {
-        return traveler2_name;
+    public String getFollowed() {
+        return followed;
     }
 
-    public void setTraveler2_name(String traveler2_name) {
-        this.traveler2_name = traveler2_name;
+    public void setFollowed(String followed) {
+        this.followed = followed;
     }
 }

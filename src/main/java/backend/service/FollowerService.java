@@ -26,15 +26,15 @@ public class FollowerService {
     TravelerRepository travelerRepository;
 
     public List<Traveler> findForTraveler(int id) {
-        return followerDataRepository.findByTraveler1_id(id);
+        return followerDataRepository.findByFollower_id(id);
     }
 
     public List<FollowerData> findAll() {
         return followerDataRepository.findAll();
     }
 
-    public void deleteByFollowedId(int traveler, int followed) {  // not working
-        followerDataRepository.deleteByTraveler1_idAndTraveler2_id(traveler, followed);
+    public void deleteByFollowedId(int follower, int followed) {  // not working
+        followerDataRepository.deleteByFollower_idAndFollowed_id(follower, followed);
     }
 
     @Transactional
@@ -43,11 +43,11 @@ public class FollowerService {
         if(isAlreadyFollowed(request)) {
             return "Already Followed!";
         }
-        PersonalData personalData1 = personalDataRepository.findByUsername(request.getTraveler1_name());
-        PersonalData personalData2 = personalDataRepository.findByUsername(request.getTraveler2_name());
-        Traveler traveler1 = travelerRepository.findByPersonaldata_id(personalData1.getId());
-        Traveler traveler2 = travelerRepository.findByPersonaldata_id(personalData2.getId());
-        followerDataRepository.createNewFollow(traveler1.getId(), traveler2.getId());
+        PersonalData followerPersonalData = personalDataRepository.findByUsername(request.getFollower());
+        PersonalData followedPersonalData = personalDataRepository.findByUsername(request.getFollowed());
+        Traveler follower = travelerRepository.findByPersonaldata_id(followerPersonalData.getId());
+        Traveler followed = travelerRepository.findByPersonaldata_id(followedPersonalData.getId());
+        followerDataRepository.createNewFollow(follower.getId(), followed.getId());
         return "Followed";
     }
 

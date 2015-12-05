@@ -3,13 +3,13 @@
 
 CREATE TABLE `follower_data` (
 	`id` INT(10) NOT NULL AUTO_INCREMENT,
-	`traveler1_id` INT(10) NULL DEFAULT NULL,
-	`traveler2_id` INT(10) NULL DEFAULT NULL,
+	`follower_id` INT(10) NULL DEFAULT NULL,
+	`followed_id` INT(10) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	INDEX `follow_traveler1-traveler` (`traveler1_id`),
-	INDEX `follow_traveler2-traveler` (`traveler2_id`),
-	CONSTRAINT `follow_traveler1-traveler` FOREIGN KEY (`traveler1_id`) REFERENCES `traveler` (`id`),
-	CONSTRAINT `follow_traveler2-traveler` FOREIGN KEY (`traveler2_id`) REFERENCES `traveler` (`id`)
+	INDEX `follow_follower-traveler` (`follower_id`),
+	INDEX `follow_followed-traveler` (`followed_id`),
+	CONSTRAINT `follow_follower-traveler` FOREIGN KEY (`follower_id`) REFERENCES `traveler` (`id`),
+	CONSTRAINT `follow_followed-traveler` FOREIGN KEY (`followed_id`) REFERENCES `traveler` (`id`)
 )
 COLLATE='latin2_hungarian_ci'
 ENGINE=InnoDB
