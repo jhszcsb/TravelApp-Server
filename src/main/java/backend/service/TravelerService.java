@@ -32,8 +32,12 @@ public class TravelerService {
     }
 
     @Transactional
-    public Traveler findById(int id) {
-        return travelerRepository.findOne(id);
+    public Traveler findById (int id) throws TravelerNotFoundException {
+        Traveler t = travelerRepository.findOne(id);
+        if(t == null) {
+            throw new TravelerNotFoundException("Traveler Not Found!");
+        }
+        return t;
     }
 
     @Transactional

@@ -3,11 +3,13 @@ package backend.restcontroller;
 import backend.entity.PersonalData;
 import backend.entity.SocialData;
 import backend.entity.Traveler;
+import backend.service.TravelerNotFoundException;
 import backend.service.TravelerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
@@ -41,7 +43,7 @@ public class TravelerController {
 
     // READ (by id)
     @RequestMapping(value="/travelers/{id}", method=RequestMethod.GET, produces = "application/json")
-    public Traveler getTravelerById(@PathVariable int id) {
+    public Traveler getTravelerById(@PathVariable int id) throws TravelerNotFoundException {
         return travelerService.findById(id);
     }
 
@@ -95,6 +97,12 @@ public class TravelerController {
         traveler.setPersonaldata(personalData);
         traveler.setSocialdata(socialData);
         return traveler;
+    }
+
+    @ExceptionHandler(TravelerNotFoundException.class)
+    @ResponseBody
+    public ErrorMessage handleErrors(TravelerNotFoundException ex, HttpServletResponse response) {
+        return new ErrorMessage(String.valueOf(response.getStatus()), ex.getMessage());
     }
 
 }

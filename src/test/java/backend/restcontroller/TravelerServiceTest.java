@@ -1,5 +1,6 @@
 package backend.restcontroller;
 
+import backend.WebAppConfig;
 import backend.entity.PersonalData;
 import backend.entity.Traveler;
 import backend.service.TravelerService;
@@ -11,6 +12,9 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -31,11 +35,11 @@ public class TravelerServiceTest {
     @Autowired
     private WebApplicationContext wac;
 
-    @Mock
+    /*@Mock
     private TravelerService travelerServiceMock;
 
     @Mock
-    private TravelerController travelerControllerMock;
+    private TravelerController travelerControllerMock;*/
 
     @Before
     public void setUp() {
@@ -46,6 +50,7 @@ public class TravelerServiceTest {
         t.getPersonaldata().setUsername("testuser");
         Mockito.when(mockedController.getTravelerById(1)).thenReturn(t);
         mockMvc = MockMvcBuilders.standaloneSetup(mockedController).build();
+        //mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
     // This test uses the live database:
