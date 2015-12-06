@@ -3,10 +3,9 @@ package backend.restcontroller;
 import backend.entity.Gallery;
 import backend.service.GalleryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class GalleryController {
@@ -19,4 +18,10 @@ public class GalleryController {
     public Gallery getGalleryForTrip(@PathVariable int trip_id) {
         return galleryService.findAllForTrip(trip_id);
     }*/
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public ErrorMessage handleErrors(Exception ex, HttpServletResponse response) {
+        return new ErrorMessage(String.valueOf(response.getStatus()), ex.getMessage());
+    }
 }

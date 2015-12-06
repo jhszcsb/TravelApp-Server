@@ -1,12 +1,16 @@
 package backend.restcontroller;
 
 import backend.entity.*;
+import backend.service.TravelerNotFoundException;
 import backend.service.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
@@ -113,5 +117,11 @@ public class TripController {
 
     // UPDATE (by Traveler id and Trip id)
     // todo: implement
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public ErrorMessage handleErrors(Exception ex, HttpServletResponse response) {
+        return new ErrorMessage(String.valueOf(response.getStatus()), ex.getMessage());
+    }
 
 }

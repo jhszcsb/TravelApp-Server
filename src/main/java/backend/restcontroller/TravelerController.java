@@ -102,7 +102,7 @@ public class TravelerController {
     @ExceptionHandler(TravelerNotFoundException.class)
     @ResponseBody
     public ErrorMessage handleErrors(TravelerNotFoundException ex, HttpServletResponse response) {
-        return new ErrorMessage(String.valueOf(response.getStatus()), ex.getMessage());
+        return new ErrorMessage("500", ex.getMessage());
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -83,6 +84,12 @@ public class PlaceController {
         resource.add(linkTo(methodOn(TripController.class).getTripById(place.getTrip())).withRel("Trip"));
         System.out.println("id: " + resource.getContent().getId());
         return resource;
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public ErrorMessage handleErrors(Exception ex, HttpServletResponse response) {
+        return new ErrorMessage(String.valueOf(response.getStatus()), ex.getMessage());
     }
 
 }

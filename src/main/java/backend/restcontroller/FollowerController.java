@@ -9,6 +9,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -100,5 +101,11 @@ public class FollowerController {
         Resource<Object> resource = new Resource(o);
         resource.add(linkTo(methodOn(FollowerController.class).deleteFollowByTravelerIdsHateoas(traveler_id, followed_id)).withSelfRel());
         return resource;
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public ErrorMessage handleErrors(Exception ex, HttpServletResponse response) {
+        return new ErrorMessage(String.valueOf(response.getStatus()), ex.getMessage());
     }
 }

@@ -3,10 +3,9 @@ package backend.restcontroller;
 import backend.entity.User;
 import backend.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class AuthenticationController {
@@ -18,5 +17,11 @@ public class AuthenticationController {
     @RequestMapping(value="/authenticationdata/{username}", method= RequestMethod.GET)
     public User findUserByUsername(@PathVariable String username) {
         return authenticationService.findUserByUsername(username);
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public ErrorMessage handleErrors(Exception ex, HttpServletResponse response) {
+        return new ErrorMessage(String.valueOf(response.getStatus()), ex.getMessage());
     }
 }
