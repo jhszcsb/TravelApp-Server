@@ -18,7 +18,7 @@ public interface FollowerDataRepository extends BaseRepository<FollowerData, Int
     @Modifying
     void createNewFollow(int follower_id, int followed_id);
 
-    // todo: use ids
+    // improvement: use ids
     @Query(value = "SELECT * FROM follower_data WHERE `follower_id` = ?1 AND `followed_id` = ?2;", nativeQuery = true)
     FollowerData getFollowedData(String follower_name, String followed_name);
 }

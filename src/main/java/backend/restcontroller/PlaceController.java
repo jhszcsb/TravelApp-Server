@@ -34,7 +34,7 @@ public class PlaceController {
         return placeService.findAllForTrip(trip_id);
     }
 
-    // DELETE (by id)   // todo: add link with same root as above
+    // DELETE (by id)
     @RequestMapping(value="/place/{place_id}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePlaceById(@PathVariable int id) {
@@ -65,13 +65,6 @@ public class PlaceController {
         System.out.println("id: " + resource.getContent().getId());
         return resource;
     }
-
-    // TODO: build links: http://city81.blogspot.hu/2013/05/spring-mvc-and-hateoas-constraint.html
-    // .slash("trips/" + place.getId() + "/place")
-
-
-
-
 
 
     // READ (for Trip)

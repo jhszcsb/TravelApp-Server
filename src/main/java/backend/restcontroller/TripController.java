@@ -20,13 +20,12 @@ import java.util.List;
 @RestController
 public class TripController {
 
-    // todo: set content type everywhere
+    // improvement: set content type everywhere
 
     @Autowired
     TripService tripService;
 
     // CREATE (for Traveler)   // First create a new Trip, then update it with data
-    // todo handle wrong input
     @RequestMapping(value="/travelers/{traveler_id}/trips", method= RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Trip createNewTripForTraveler(@PathVariable int traveler_id) {
@@ -115,8 +114,7 @@ public class TripController {
         return trip;
     }
 
-    // UPDATE (by Traveler id and Trip id)
-    // todo: implement
+    // new service for improvement: UPDATE (by Traveler id and Trip id)
 
     @ExceptionHandler(Exception.class)
     @ResponseBody

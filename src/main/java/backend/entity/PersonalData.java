@@ -22,7 +22,7 @@ public class PersonalData {
 
     private String lastname;
 
-    //@JsonIgnore   // todo: ignore password when sending personal data to clients?
+    //@JsonIgnore   // ignore password when sending personal data to clients
     private String password;
 
     private String email;

@@ -3,7 +3,7 @@ package backend.entity;
 
 public class FollowRequest {
 
-    // TODO: add ids as well?
+    // ids can be added here as well
 
     private String follower;
 

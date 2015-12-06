@@ -1,6 +1,3 @@
---todo: add valid sequence of create codes to be able to reinitialize db
---todo: add test data to db from sql file
-
 CREATE TABLE `follower_data` (
 	`id` INT(10) NOT NULL AUTO_INCREMENT,
 	`follower_id` INT(10) NULL DEFAULT NULL,

@@ -29,8 +29,7 @@ public class TravelerController {
     @RequestMapping(value="/travelers", method=RequestMethod.POST, consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void createNewTraveler(@RequestBody Traveler newTraveler) {
-        // maybe invoke some validation methods here?
-        // todo: if socialdata is null, add empty socialdata
+        // improvement: if socialdata is null, add empty socialdata
         newTraveler.getPersonaldata().setMembersince(new Date());
         travelerService.save(newTraveler);
     }
@@ -49,12 +48,11 @@ public class TravelerController {
 
     // READ (by personaldataid)
     @RequestMapping(value="/travelers/personaldata/{id}", method=RequestMethod.GET)
-    // todo: change scope to: /travelers/personaldata/{personaldataid}
     public Traveler getTravelerByPersonalDataId(@PathVariable int id) {
         return travelerService.findByPersonalDataId(id);
     }
 
-    // READ (by name) // todo: add personaldata controller?
+    // READ (by name)
     @RequestMapping(value="/travelers/{name}/personaldata", method=RequestMethod.GET)
     public PersonalData getPersonalDataByName(@PathVariable String name) {
         return travelerService.findByUsername(name);
