@@ -23,7 +23,7 @@ public class TripController {
 
     // CREATE (for Traveler)   // First create a new Trip, then update it with data
     // todo handle wrong input
-    @RequestMapping(value="/{traveler_id}/trips", method= RequestMethod.POST)
+    @RequestMapping(value="/travelers/{traveler_id}/trips", method= RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Trip createNewTripForTraveler(@PathVariable int traveler_id) {
         return tripService.createNewForTraveler(traveler_id);
@@ -42,7 +42,7 @@ public class TripController {
     }
 
     // READ (all trips for one Traveler)
-    @RequestMapping(value="/{traveler_id}/trips", method=RequestMethod.GET)
+    @RequestMapping(value="/travelers/{traveler_id}/trips", method=RequestMethod.GET)
     public List<Trip> getAllTripsForTraveler(@PathVariable int traveler_id) {
         return tripService.findAllForTraveler(traveler_id);
     }

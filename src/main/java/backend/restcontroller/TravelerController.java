@@ -40,7 +40,7 @@ public class TravelerController {
     }
 
     // READ (by id)
-    @RequestMapping(value="/travelers/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/travelers/{id}", method=RequestMethod.GET, produces = "application/json")
     public Traveler getTravelerById(@PathVariable int id) {
         return travelerService.findById(id);
     }

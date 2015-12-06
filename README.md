@@ -24,10 +24,10 @@ Base URL for HATEOAS services: https://localhost:8443/hateoas/
   
  Service | URL | HTTP Method 
  ------- | --- | -----------
- CREATE  | /{traveler_id}/trips  | POST  
+ CREATE  | /travelers/{traveler_id}/trips  | POST  
  READ  | /trips  | GET |
  READ  | /trips/{id}  | GET |
- READ  | /{traveler_id}/trips  | GET |  
+ READ  | /travelers/{traveler_id}/trips  | GET |  
  READ  | /{traveler_name}/timeline  | GET |  
  UPDATE  | /trips  | PUT |
  DELETE  | /trips/{id}  | DELETE |
@@ -38,8 +38,8 @@ Base URL for HATEOAS services: https://localhost:8443/hateoas/
  ------- | --- | -----------
  CREATE  | /follows  | POST 
  READ  | /follows  | GET 
- READ  | /{traveler_id}/follows  | GET  
- DELETE  | /{traveler_id}/follows/{followed_id}  | DELETE 
+ READ  | /travelers/{traveler_id}/follows  | GET  
+ DELETE  | /travelers/{traveler_id}/follows/{followed_id}  | DELETE 
  
 ### Picture
  

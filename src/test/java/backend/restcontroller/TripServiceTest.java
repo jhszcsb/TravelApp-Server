@@ -37,7 +37,7 @@ public class TripServiceTest {
     @Test
     public void validateGetTrip() throws Exception {
         mockMvc.perform(get("/trips/1"))
-                .andExpect(status().isOk())
+                .andExpect(status().isOk());
                 //.andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
                 //.andExpect(jsonPath("$.traveler_id").value("1"));
     }

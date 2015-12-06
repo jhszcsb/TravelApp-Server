@@ -35,13 +35,13 @@ public class FollowerController {
     }
 
     // READ (Follows for a Traveler)
-    @RequestMapping(value="/{traveler_id}/follows", method= RequestMethod.GET)
+    @RequestMapping(value="/travelers/{traveler_id}/follows", method= RequestMethod.GET)
     public List<Traveler> getFollowsForTraveler(@PathVariable int traveler_id) {
         return followerService.findForTraveler(traveler_id);
     }
 
     // DELETE (Follow for a Traveler)
-    @RequestMapping(value="/{traveler_id}/follows/{followed_id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/travelers/{traveler_id}/follows/{followed_id}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteFollowByTravelerIds(@PathVariable int traveler_id, @PathVariable int followed_id) {
         followerService.deleteByFollowedId(traveler_id, followed_id);
@@ -77,7 +77,7 @@ public class FollowerController {
     }
 
     // READ (Follows for a Traveler)
-    @RequestMapping(value="/hateoas/{traveler_id}/follows", method= RequestMethod.GET)
+    @RequestMapping(value="/hateoas/travelers/{traveler_id}/follows", method= RequestMethod.GET)
     public List<Resource<Traveler>> getFollowsForTravelerHateoas(@PathVariable int traveler_id) {
         List<Traveler> travelers = followerService.findForTraveler(traveler_id);
         List<Resource<Traveler>> resources = travelers.stream().map(this::createTravelerResource).collect(Collectors.toList());
@@ -92,7 +92,7 @@ public class FollowerController {
     }
 
     // DELETE (FollowerData for a Traveler)
-    @RequestMapping(value="/hateoas/{traveler_id}/follows/{followed_id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/hateoas/travelers/{traveler_id}/follows/{followed_id}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Resource<Object> deleteFollowByTravelerIdsHateoas(@PathVariable int traveler_id, @PathVariable int followed_id) {
         followerService.deleteByFollowedId(traveler_id, followed_id);
